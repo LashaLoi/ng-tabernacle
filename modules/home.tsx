@@ -11,7 +11,13 @@ export default function Home() {
       <div className="w-full mt-5 flex flex-col justify-center items-center">
         <FadeIn delay={0.2}>
           <div style={{ marginTop: -100 }}>
-            <Image src={logo.src} alt={logo.alt} height={200} width={300} />
+            <Image
+              src={logo.src}
+              alt="logo"
+              height={200}
+              width={300}
+              priority
+            />
           </div>
         </FadeIn>
         <FadeIn delay={0.4}>
