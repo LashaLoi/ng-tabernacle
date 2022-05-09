@@ -1,69 +1,110 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-
-import logo from '../public/logo.svg'
 import { FadeIn } from '../components/fade-in'
+
+const arrow = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M17 8l4 4m0 0l-4 4m4-4H3"
+    />
+  </svg>
+)
 
 export default function Home() {
   return (
-    <div className="absolute top-0  w-full h-full flex justify-center">
-      <div className="w-full mt-5 flex flex-col justify-center items-center">
-        <FadeIn delay={0.2}>
-          <div style={{ marginTop: -100 }}>
-            <Image
-              src={logo.src}
-              alt="logo"
-              height={200}
-              width={300}
-              priority
-            />
-          </div>
-        </FadeIn>
-        <FadeIn delay={0.4}>
-          <h1 className="main-title text-4xl mb-6">NEW GENERATION</h1>
-        </FadeIn>
-        <motion.div
-          initial="init"
-          animate="out"
-          variants={{
-            init: {
-              width: 0,
-            },
-            out: {
-              width: 200,
-            },
-          }}
-          transition={{
-            delay: 0.5,
-          }}
-          className="h-[1px] bg-gradient-to-r from-[#c850c0] to-blue-500 mb-14"
-        />
-        <FadeIn>
-          <div className="flex sm:flex-row flex-col">
+    <FadeIn>
+      <div className="h-screen w-full flex flex-col justify-center items-center p-2">
+        <div className="p-12">
+          <h1 className="tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl text-4xl">
+            <span className="block xl:inline">Data enrich</span>{' '}
+            <span className="block text-indigo-600 xl:inline main-title">
+              Скиния 2022
+            </span>
+          </h1>
+          <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl  md:mt-5 md:text-xl lg:mx-0">
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+            fugiat aliqua.
+          </p>
+          <div className="flex sm:flex-row flex-col mt-10 flex-wrap">
+            <div className="sm:block hidden">
+              <Link href="/registration">
+                <a className="text-center cursor-pointer sm:w-[140px] w-full relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900  group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                  <span className="sm:w-[140px] w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 group-hover:bg-opacity-0">
+                    Регистрация
+                  </span>
+                </a>
+              </Link>
+            </div>
+
             <Link href="/registration">
-              <a className="sm:w-[130px] w-[200px] text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium text-sm sm:py-2 py-1 text-center mx-2 mb-4">
-                Регистрация
+              <a className="mb-4 sm:hidden block flex items-center">
+                <span className="mr-2">Регистрация</span>
+                {arrow}
               </a>
             </Link>
+
+            <div className="sm:block hidden">
+              <Link href="/program">
+                <a className="text-center cursor-pointer sm:w-[140px] w-full relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900  group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                  <span className="sm:w-[140px] w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 group-hover:bg-opacity-0">
+                    Программа
+                  </span>
+                </a>
+              </Link>
+            </div>
+
             <Link href="/program">
-              <a className="sm:w-[130px] w-[200px] text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm sm:py-2 py-1 text-center mx-2 mb-4">
-                Программа
+              <a className="mb-4 sm:hidden block flex items-center">
+                <span className="mr-2">Программа</span>
+                {arrow}
               </a>
             </Link>
+
+            <div className="sm:block hidden">
+              <Link href="/about">
+                <a className="text-center cursor-pointer sm:w-[140px] w-full relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900  group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                  <span className="sm:w-[140px] w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 group-hover:bg-opacity-0">
+                    Контакты
+                  </span>
+                </a>
+              </Link>
+            </div>
+
             <Link href="/about">
-              <a className="sm:w-[130px] w-[200px] text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium text-sm sm:py-2 py-1 text-center mx-2 mb-4">
-                Контакты
+              <a className="mb-4 sm:hidden block flex items-center">
+                <span className="mr-2">Контакты</span>
+                {arrow}
               </a>
             </Link>
+
+            <div className="sm:block hidden">
+              <Link href="/gallery">
+                <a className="text-center cursor-pointer sm:w-[140px] w-full relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900  group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                  <span className="sm:w-[140px] w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 group-hover:bg-opacity-0">
+                    Галерея
+                  </span>
+                </a>
+              </Link>
+            </div>
+
             <Link href="/gallery">
-              <a className="sm:w-[130px] w-[200px] text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-1 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium text-sm sm:py-2 py-1 text-center mx-2 mb-4">
-                Галерея
+              <a className="mb-4 sm:hidden block flex items-center">
+                <span className="mr-2">Галерея</span>
+                {arrow}
               </a>
             </Link>
           </div>
-        </FadeIn>
+        </div>
       </div>
-    </div>
+    </FadeIn>
   )
 }
