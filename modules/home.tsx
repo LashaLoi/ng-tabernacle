@@ -37,8 +37,8 @@ export default function Home() {
           <div className="flex sm:flex-row flex-col mt-10 flex-wrap">
             <div className="sm:block hidden">
               <Link href="/registration">
-                <a className="text-center cursor-pointer sm:w-[140px] w-full relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900  group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-                  <span className="sm:w-[140px] w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 group-hover:bg-opacity-0">
+                <a className="text-center cursor-pointer sm:w-[140px] w-full relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900  group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                  <span className="sm:w-[140px] w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white group-hover:bg-opacity-0">
                     Регистрация
                   </span>
                 </a>

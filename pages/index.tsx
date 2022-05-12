@@ -36,7 +36,7 @@ export default function Home() {
       <Head>
         <title>Tabernacle</title>
       </Head>
-      <div className="relative flex flex-wrap md items-center h-screen">
+      <div className="relative flex flex-wrap md items-center h-screen bg-[#100120]">
         <div className="w-full md:w-1/2 h-screen relative">
           <div className="absolute top-0 w-full h-full flex justify-center">
             <div className="flex flex-col justify-center items-center">
