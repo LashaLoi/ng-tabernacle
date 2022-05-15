@@ -13,6 +13,7 @@
     "@react-three/fiber": "7.0.26",
     "@supabase/supabase-js": "^1.35.3",
     "@types/three": "0.137.0",
+    "antd": "^4.20.4",
     "framer-motion": "^6.3.3",
     "lamina": "1.0.6",
     "maath": "0.0.2",

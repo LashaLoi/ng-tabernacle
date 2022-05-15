@@ -41,5 +41,135 @@ export const Btns = () => (
         </a>
       </Link>
     </div>
+    {/*<Form.Item*/}
+    {/*  name="fullName"*/}
+    {/*  label="ФИО"*/}
+    {/*  rules={[*/}
+    {/*    {*/}
+    {/*      required: true,*/}
+    {/*      message: 'Пожалуйста введите свое ФИО.',*/}
+    {/*    },*/}
+    {/*  ]}*/}
+    {/*>*/}
+    {/*  <Input placeholder="Иван Иванович Иванов" />*/}
+    {/*</Form.Item>*/}
+    {/*{step === 2 && (*/}
+    {/*  <Form.Item*/}
+    {/*    name="date-picker"*/}
+    {/*    label="Дата рождения"*/}
+    {/*    rules={[*/}
+    {/*      {*/}
+    {/*        type: 'object' as const,*/}
+    {/*        required: true,*/}
+    {/*        message: 'Please select time!',*/}
+    {/*      },*/}
+    {/*    ]}*/}
+    {/*  >*/}
+    {/*    <DatePicker style={{ width: '100%' }} />*/}
+    {/*  </Form.Item>*/}
+    {/*)}*/}
+    {/*<Form.Item*/}
+    {/*  name="city"*/}
+    {/*  label="Город"*/}
+    {/*  rules={[*/}
+    {/*    {*/}
+    {/*      required: true,*/}
+    {/*      message: 'Пожауйста введите ваш Город.',*/}
+    {/*    },*/}
+    {/*  ]}*/}
+    {/*>*/}
+    {/*  <Input placeholder="Минск" />*/}
+    {/*</Form.Item>*/}
+    {/*<Form.Item*/}
+    {/*  name="phone"*/}
+    {/*  label="Телефон"*/}
+    {/*  rules={[*/}
+    {/*    {*/}
+    {/*      required: true,*/}
+    {/*      message: 'Пожауйста введите ваш Телефон.',*/}
+    {/*    },*/}
+    {/*  ]}*/}
+    {/*>*/}
+    {/*  <Input addonBefore={prefixSelector} style={{ width: '100%' }} />*/}
+    {/*</Form.Item>*/}
+    {/*<Form.Item*/}
+    {/*  name="email"*/}
+    {/*  label="Email"*/}
+    {/*  rules={[*/}
+    {/*    {*/}
+    {/*      type: 'email',*/}
+    {/*      message: 'Введите валидный Email.',*/}
+    {/*    },*/}
+    {/*    {*/}
+    {/*      required: true,*/}
+    {/*      message: 'Пожауйста введите ваш Email.',*/}
+    {/*    },*/}
+    {/*  ]}*/}
+    {/*>*/}
+    {/*  <Input placeholder="lashaloi1409@gmail.com" />*/}
+    {/*</Form.Item>*/}
+    {/*<Form.Item*/}
+    {/*  name="church"*/}
+    {/*  label="Церковь"*/}
+    {/*  rules={[*/}
+    {/*    {*/}
+    {/*      required: true,*/}
+    {/*      message: 'Пожалуйста введите название церкви.',*/}
+    {/*    },*/}
+    {/*  ]}*/}
+    {/*>*/}
+    {/*  <Input placeholder="Новое Поколение" />*/}
+    {/*</Form.Item>*/}
+    {/*<Form.Item*/}
+    {/*  name="ministry"*/}
+    {/*  label="Ваше служение в церкви"*/}
+    {/*  rules={[{ required: true, message: 'Выберите ваше служение.' }]}*/}
+    {/*>*/}
+    {/*  <Select placeholder="Выберите ваше служение">*/}
+    {/*    <Option value="singLeader">Лидер прославления</Option>*/}
+    {/*    <Option value="sing">Служитель прославления</Option>*/}
+    {/*    <Option value="pastor">Пастор</Option>*/}
+    {/*    <Option value="pastorHelper">Помощник пастора</Option>*/}
+    {/*    <Option value="otherMinistry">Другое служение</Option>*/}
+    {/*    <Option value="none">Не несу служение</Option>*/}
+    {/*    <Option value="noneInChurch">Не прихожанин церкви</Option>*/}
+    {/*  </Select>*/}
+    {/*</Form.Item>*/}
+    {/*{ministry === 'otherMinistry' && (*/}
+    {/*  <Form.Item*/}
+    {/*    name="otherMinistry"*/}
+    {/*    label="Другое служение"*/}
+    {/*    rules={[*/}
+    {/*      {*/}
+    {/*        required: true,*/}
+    {/*        message: 'Пожалуйста введите название служения.',*/}
+    {/*      },*/}
+    {/*    ]}*/}
+    {/*  >*/}
+    {/*    <Input placeholder="Стулья раставляю" />*/}
+    {/*  </Form.Item>*/}
+    {/*)}*/}
+    {/*<Form.Item*/}
+    {/*  name="days"*/}
+    {/*  label="Количество дней"*/}
+    {/*  rules={[*/}
+    {/*    {*/}
+    {/*      required: true,*/}
+    {/*      message: 'Пожалуйста введите количество дней.',*/}
+    {/*    },*/}
+    {/*  ]}*/}
+    {/*>*/}
+    {/*  <InputNumber placeholder="Дни" />*/}
+    {/*</Form.Item>*/}
+    {/*<Form*/}
+    {/*  form={form}*/}
+    {/*  name="register"*/}
+    {/*  layout="vertical"*/}
+    {/*  onFinish={onFinish}*/}
+    {/*  initialValues={{*/}
+    {/*    prefix: '33',*/}
+    {/*  }}*/}
+    {/*  scrollToFirstError*/}
+    {/*></Form>*/}
   </>
 )
