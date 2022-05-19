@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { FadeIn } from '../components/fade-in'
+import { Button } from 'antd'
 
 const arrow = (
   <svg
@@ -35,70 +36,54 @@ export default function Home() {
             fugiat aliqua.
           </p>
           <div className="flex sm:flex-row flex-col mt-10 flex-wrap">
-            <div className="sm:block hidden">
-              <Link href="/registration">
-                <a className="text-center cursor-pointer sm:w-[140px] w-full relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900  group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-                  <span className="sm:w-[140px] w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white group-hover:bg-opacity-0">
-                    Регистрация
-                  </span>
-                </a>
+            <div className="sm:block hidden mr-2 my-2">
+              <Link href="/registration" passHref>
+                <Button>Регистрация</Button>
               </Link>
             </div>
 
             <Link href="/registration">
               <a className="mb-4 sm:hidden block flex items-center">
-                <span className="mr-2">Регистрация</span>
+                <span className="mr-2 text-lg">Регистрация</span>
                 {arrow}
               </a>
             </Link>
 
-            <div className="sm:block hidden">
-              <Link href="/program">
-                <a className="text-center cursor-pointer sm:w-[140px] w-full relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900  group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-                  <span className="sm:w-[140px] w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 group-hover:bg-opacity-0">
-                    Программа
-                  </span>
-                </a>
+            <div className="sm:block hidden mr-2 my-2">
+              <Link href="/program" passHref>
+                <Button>Программа</Button>
               </Link>
             </div>
 
             <Link href="/program">
               <a className="mb-4 sm:hidden block flex items-center">
-                <span className="mr-2">Программа</span>
+                <span className="mr-2 text-lg">Программа</span>
                 {arrow}
               </a>
             </Link>
 
-            <div className="sm:block hidden">
-              <Link href="/about">
-                <a className="text-center cursor-pointer sm:w-[140px] w-full relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900  group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-                  <span className="sm:w-[140px] w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 group-hover:bg-opacity-0">
-                    Контакты
-                  </span>
-                </a>
+            <div className="sm:block hidden mr-2 my-2">
+              <Link href="/about" passHref>
+                <Button>Контакты</Button>
               </Link>
             </div>
 
             <Link href="/about">
               <a className="mb-4 sm:hidden block flex items-center">
-                <span className="mr-2">Контакты</span>
+                <span className="mr-2 text-lg">Контакты</span>
                 {arrow}
               </a>
             </Link>
 
-            <div className="sm:block hidden">
-              <Link href="/gallery">
-                <a className="text-center cursor-pointer sm:w-[140px] w-full relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900  group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-                  <span className="sm:w-[140px] w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 group-hover:bg-opacity-0">
-                    Галерея
-                  </span>
-                </a>
+            <div className="sm:block hidden mr-2 my-2">
+              <Link href="/gallery" passHref>
+                <Button>Галерея</Button>
               </Link>
             </div>
 
             <Link href="/gallery">
               <a className="mb-4 sm:hidden block flex items-center">
-                <span className="mr-2">Галерея</span>
+                <span className="mr-2 text-lg">Галерея</span>
                 {arrow}
               </a>
             </Link>

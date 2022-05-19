@@ -14,10 +14,7 @@ body {
   background: white;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+
 
 * {
   box-sizing: border-box;
@@ -31,4 +28,110 @@ a {
 
 .btn:hover {
   transition: all .5s ease-in-out;
+}
+
+
+.gooey{
+  background-image: linear-gradient(120deg, #c850c0 0%, white 100%);
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  width: 600px;
+  height: 500px;
+
+  margin-left: -300px;
+  margin-top: -200px;
+
+  animation: morph 3s linear infinite;
+  transform-style: preserve-3d;
+  outline: 1px solid transparent;
+  will-change: border-radius;
+}
+
+@media (max-width: 640px) {
+  .gooey {
+    height: 320px;
+
+    margin-left: -100px;
+
+    margin-top: -100px;
+  }
+}
+
+.gooey:before,
+.gooey:after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0; top: 0;
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  box-shadow: 5px 5px 89px rgba(0, 102, 255, 0.21);
+  will-change: border-radius, transform, opacity;
+  animation-delay: 200ms;
+  background-image: linear-gradient(120deg, #b400ff 0%, #ffcc70 100%);
+}
+
+.gooey:before{
+  animation: morph 3s linear infinite;
+  opacity: .21;
+  animation-duration: 1.5s;
+}
+
+.gooey:after{
+  animation: morph 3s linear infinite;
+  animation-delay: 400ms;
+  opacity: .89;
+  content: "";
+  line-height: 120px;
+  text-indent: -21px;
+}
+
+@keyframes morph{
+  0%,100%{
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate3d(0,0,0) rotateZ(0.01deg);
+  }
+  34%{
+    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+    transform:  translate3d(0,5px,0) rotateZ(0.01deg);
+  }
+  50%{
+    opacity: .89;
+    transform: translate3d(0,0,0) rotateZ(0.01deg);
+  }
+  67%{
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60% ;
+    transform: translate3d(0,-3px,0) rotateZ(0.01deg);
+  }
+}
+
+@keyframes fadeIn{
+  100%{
+    transform: scale(1.03);
+    opacity: 0;
+  }}
+
+.gallery {
+  overscroll-behavior: none;
+  background: #151515;
+  color: #a0a0a0;
+}
+
+.gallery h1 {
+  font-size: 30vw;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 0.7em;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery a {
+  pointer-events: all;
+  color: #a0a0a0;
+  text-decoration: none;
+}
+
+.gallery svg {
+  fill: #a0a0a0;
 }

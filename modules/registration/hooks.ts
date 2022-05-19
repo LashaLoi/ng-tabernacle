@@ -1,20 +1,51 @@
-import { useCallback, useReducer, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
-export const useStep = (): [number, () => void, () => void] => {
-  const [step, setStep] = useReducer(
-    (state: number, step: number) => state + step,
-    0
+export enum Finish {
+  No = 'No',
+  Yes = 'Yes',
+}
+
+export const useLS = (
+  key: string
+): [Finish | null, (value: Finish) => void] => {
+  const [value, setValue] = useState<Finish | null>(null)
+
+  const setItem = useCallback(
+    (value: Finish) => {
+      localStorage.setItem(key, value)
+
+      setValue(value)
+    },
+    [key]
   )
 
-  const incrementStep = useCallback(() => {
-    setStep(1)
+  useEffect(() => {
+    const value = localStorage.getItem(key) as Finish | null
+
+    setValue(value ?? Finish.No)
   }, [])
 
-  const decrementStep = useCallback(() => {
-    setStep(-1)
-  }, [])
+  return useMemo(() => [value, setItem], [value, setItem])
+}
 
-  return [step, incrementStep, decrementStep]
+export const useStep = (): [
+  number,
+  (step?: number) => void,
+  (step?: number) => void,
+  (step: number) => void
+] => {
+  const [step, setStep] = useState(0)
+
+  const incrementStep = useCallback(
+    (step = 1) => setStep((currentStep) => currentStep + step),
+    []
+  )
+  const decrementStep = useCallback(
+    (step = -1) => setStep((currentStep) => currentStep + step),
+    []
+  )
+
+  return [step, incrementStep, decrementStep, setStep]
 }
 
 export const useValue = (): [
