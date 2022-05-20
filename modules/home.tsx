@@ -2,6 +2,12 @@ import Link from 'next/link'
 import { FadeIn } from '../components/fade-in'
 import { Button } from 'antd'
 
+import {
+  InstagramOutlined,
+  FacebookOutlined,
+  YoutubeOutlined,
+} from '@ant-design/icons'
+
 const arrow = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +28,7 @@ const arrow = (
 export default function Home() {
   return (
     <FadeIn>
-      <div className="h-screen w-full flex flex-col justify-center items-center p-2">
+      <div className="h-screen w-full flex flex-col justify-center items-center p-2 relative">
         <div className="p-12">
           <h1 className="tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl text-4xl">
             <span className="block text-indigo-600 xl:inline main-title">
@@ -33,6 +39,7 @@ export default function Home() {
             Добро пожаловать на Скинию 2022! Здесь вы можете разегестрироваться
             на конференцию, стать спонсором, а так же узнать программу
           </p>
+
           <div className="flex sm:flex-row flex-col mt-10 flex-wrap">
             <div className="sm:block hidden mr-2 my-2">
               <Link href="/registration" passHref>
@@ -72,32 +79,18 @@ export default function Home() {
                 {arrow}
               </a>
             </Link>
+          </div>
 
-            {/*<div className="sm:block hidden mr-2 my-2">*/}
-            {/*  <Link href="/about" passHref>*/}
-            {/*    <Button>Контакты</Button>*/}
-            {/*  </Link>*/}
-            {/*</div>*/}
-
-            {/*<Link href="/about">*/}
-            {/*  <a className="mb-4 sm:hidden block flex items-center">*/}
-            {/*    <span className="mr-2 text-lg">Контакты</span>*/}
-            {/*    {arrow}*/}
-            {/*  </a>*/}
-            {/*</Link>*/}
-
-            {/*<div className="sm:block hidden mr-2 my-2">*/}
-            {/*  <Link href="/gallery" passHref>*/}
-            {/*    <Button>Галерея</Button>*/}
-            {/*  </Link>*/}
-            {/*</div>*/}
-
-            {/*<Link href="/gallery">*/}
-            {/*  <a className="mb-4 sm:hidden block flex items-center">*/}
-            {/*    <span className="mr-2 text-lg">Галерея</span>*/}
-            {/*    {arrow}*/}
-            {/*  </a>*/}
-            {/*</Link>*/}
+          <div className="absolute bottom-10 flex">
+            <div className="mr-4 cursor-pointer">
+              <InstagramOutlined style={{ fontSize: '20px' }} />
+            </div>
+            <div className="mr-4 cursor-pointer">
+              <FacebookOutlined style={{ fontSize: '20px' }} />
+            </div>
+            <div className="mr-4 cursor-pointer">
+              <YoutubeOutlined style={{ fontSize: '20px' }} />
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Button } from 'antd'
-import { FadeIn } from '../../components/fade-in'
+import { FadeIn } from './fade-in'
 
 interface StepsProps {
   handleIncrement: () => void

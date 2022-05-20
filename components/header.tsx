@@ -5,8 +5,11 @@ import { Button, Tooltip } from 'antd'
 import {
   ContactsOutlined,
   DollarCircleOutlined,
+  FacebookOutlined,
   HomeOutlined,
+  InstagramOutlined,
   UnorderedListOutlined,
+  YoutubeOutlined,
 } from '@ant-design/icons'
 import { useRouter } from 'next/router'
 
@@ -72,6 +75,18 @@ export default function Header() {
             </Tooltip>
           </Link>
         ))}
+      </div>
+
+      <div className="fixed left-10 bottom-10 md:flex hidden">
+        <div className="mr-4 cursor-pointer">
+          <InstagramOutlined style={{ fontSize: '20px' }} />
+        </div>
+        <div className="mr-4 cursor-pointer">
+          <FacebookOutlined style={{ fontSize: '20px' }} />
+        </div>
+        <div className="mr-4 cursor-pointer">
+          <YoutubeOutlined style={{ fontSize: '20px' }} />
+        </div>
       </div>
     </>
   )

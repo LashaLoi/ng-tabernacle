@@ -4,24 +4,21 @@ import { AnimatePresence, motion } from 'framer-motion'
 import 'moment/locale/ru'
 import locale from 'antd/lib/date-picker/locale/ru_RU'
 
-import {
-  DatePicker,
-  Input,
-  notification,
-  Progress,
-  Select,
-  Modal,
-  Button,
-} from 'antd'
+import { DatePicker, Input, notification, Progress, Select, Modal } from 'antd'
 
 import { Finish, useLS, useStep, useValue } from './hooks'
 
 import Header from '../../components/header'
+import Steps from '../../components/steps'
 import Final from './final'
-import Steps from './steps'
 
 import { createAnimation, register } from './utils'
 import { questions } from './constants'
+import {
+  FacebookOutlined,
+  InstagramOutlined,
+  YoutubeOutlined,
+} from '@ant-design/icons'
 
 export const quizAnimation = createAnimation(50)
 export const stepAnimation = createAnimation(10)

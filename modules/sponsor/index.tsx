@@ -4,7 +4,7 @@ import { Input, Progress } from 'antd'
 import { questions } from './constants'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import Steps from '../registration/steps'
+import Steps from '../../components/steps'
 import Final from './final'
 import { quizAnimation, State, stepAnimation } from '../registration'
 import { addSponsor } from './utils'

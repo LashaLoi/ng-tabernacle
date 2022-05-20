@@ -9,6 +9,8 @@ export const parseData = (state: State) => ({
   message: state[5]?.value ?? '-',
 })
 
-export const addSponsor = (state: State) =>
-  supabase.from('Sponsor').insert(parseData(state))
+export const addSponsor = (state: State) => {
+  console.log(state)
+}
+// supabase.from('Sponsor').insert(parseData(state))
 // .then(console.log)
