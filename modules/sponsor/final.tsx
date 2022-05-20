@@ -34,6 +34,11 @@ export default function Final({ handleReset }: FinalProps) {
             <Button>Программа</Button>
           </Link>
         </div>
+        <div className="mr-2">
+          <Link href="/registration" passHref>
+            <Button type="dashed">Регистрация</Button>
+          </Link>
+        </div>
         <Button type="text" onClick={handleReset}>
           Пройти заново
         </Button>

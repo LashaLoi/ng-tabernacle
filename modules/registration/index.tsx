@@ -1,6 +1,9 @@
 import { useCallback, useMemo, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
+import 'moment/locale/ru'
+import locale from 'antd/lib/date-picker/locale/ru_RU'
+
 import {
   DatePicker,
   Input,
@@ -13,7 +16,7 @@ import {
 
 import { Finish, useLS, useStep, useValue } from './hooks'
 
-import RegistrationHeader from './header'
+import Header from '../../components/header'
 import Final from './final'
 import Steps from './steps'
 
@@ -127,8 +130,6 @@ export default function Registration() {
 
   return (
     <div className="h-screen relative overflow-hidden ">
-      <RegistrationHeader />
-
       {!loading && (
         <AnimatePresence initial={false} exitBeforeEnter={true}>
           {isFinal ? (
@@ -174,6 +175,7 @@ export default function Registration() {
                       </Select>
                     ) : currentQuestion.component === 'datepicker' ? (
                       <DatePicker
+                        locale={locale}
                         autoFocus
                         placeholder={value || currentQuestion.placeholder}
                         style={{ width: '100%' }}
@@ -215,6 +217,8 @@ export default function Registration() {
           )}
         </AnimatePresence>
       )}
+
+      <Header />
     </div>
   )
 }

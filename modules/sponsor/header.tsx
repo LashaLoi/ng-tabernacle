@@ -14,6 +14,7 @@ import logo from '../../public/logo.svg'
 export default function RegistrationHeader() {
   return (
     <>
+      {' '}
       <div className="gooey m-2 absolute" />
       <div className="absolute flex justify-center sm:w-[250px] w-full">
         <Link href="/">
@@ -32,8 +33,8 @@ export default function RegistrationHeader() {
         <Link href="/" passHref>
           <Button type="text">Главная</Button>
         </Link>
-        <Link href="/sponsor" passHref>
-          <Button type="text">Спонсорство</Button>
+        <Link href="/registration" passHref>
+          <Button type="text">Регистрация</Button>
         </Link>
         <Link href="/program" passHref>
           <Button type="text">Программа</Button>

@@ -12,7 +12,7 @@ export const state = proxy({
   ),
 })
 
-const material = new THREE.LineBasicMaterial({ color: 'white' })
+const material = new THREE.LineBasicMaterial({ color: 'black' })
 const geometry = new THREE.BufferGeometry().setFromPoints([
   new THREE.Vector3(0, -0.5, 0),
   new THREE.Vector3(0, 0.5, 0),

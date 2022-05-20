@@ -113,8 +113,7 @@ body {
 
 .gallery {
   overscroll-behavior: none;
-  background: #151515;
-  color: #a0a0a0;
+  background: white;
 }
 
 .gallery h1 {

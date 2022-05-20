@@ -4,17 +4,6 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Image, ScrollControls, Scroll, useScroll } from '@react-three/drei'
 import { useSnapshot } from 'valtio'
 import { Minimap, damp, state } from '../modules/gallery/minimap'
-import { Button, Tooltip } from 'antd'
-import {
-  ContactsOutlined,
-  FileImageOutlined,
-  HomeOutlined,
-  UnorderedListOutlined,
-} from '@ant-design/icons'
-import NextImage from 'next/image'
-import Link from 'next/link'
-
-import logo from '../public/logo.svg'
 
 function Item({
   index,
@@ -129,57 +118,6 @@ export default function Gallery() {
         <Suspense fallback={null}>
           <App />
         </Suspense>
-      </div>
-      <div className="absolute flex sm:block hidden w-full top-[-30px]">
-        <Link href="/" passHref>
-          <span className="cursor-pointer ">
-            <NextImage
-              src={logo.src}
-              alt="logo"
-              height={250}
-              width={250}
-              priority
-            />
-          </span>
-        </Link>
-      </div>
-
-      <div className="absolute right-10 top-10 md:block hidden">
-        <Link href="/" passHref>
-          <a className="mr-6 hover:text-white">Главная</a>
-        </Link>
-        <Link href="/registration" passHref>
-          <a className="mr-6 hover:text-white">Регистрация</a>
-        </Link>
-        <Link href="/program" passHref>
-          <a className="mr-6 hover:text-white">Программа</a>
-        </Link>
-        <Link href="/about" passHref>
-          <a className="hover:text-white">Контакты</a>
-        </Link>
-      </div>
-
-      <div className="flex justify-between items-center absolute text-center w-full px-8 bottom-6 md:hidden block">
-        <Link href="/" passHref>
-          <Tooltip title="Главная">
-            <Button shape="circle" icon={<HomeOutlined />} />
-          </Tooltip>
-        </Link>
-        <Link href="/program" passHref>
-          <Tooltip title="Программа">
-            <Button shape="circle" icon={<UnorderedListOutlined />} />
-          </Tooltip>
-        </Link>
-        <Link href="/about" passHref>
-          <Tooltip title="Контакты">
-            <Button shape="circle" icon={<ContactsOutlined />} />
-          </Tooltip>
-        </Link>
-        <Link href="/gallery" passHref>
-          <Tooltip title="Галерея">
-            <Button shape="circle" icon={<FileImageOutlined />} />
-          </Tooltip>
-        </Link>
       </div>
     </div>
   )

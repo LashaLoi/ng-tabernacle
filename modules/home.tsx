@@ -25,15 +25,13 @@ export default function Home() {
       <div className="h-screen w-full flex flex-col justify-center items-center p-2">
         <div className="p-12">
           <h1 className="tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl text-4xl">
-            <span className="block xl:inline">Data enrich</span>{' '}
             <span className="block text-indigo-600 xl:inline main-title">
               Скиния 2022
             </span>
           </h1>
           <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl  md:mt-5 md:text-xl lg:mx-0">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-            fugiat aliqua.
+            Добро пожаловать на Скинию 2022! Здесь вы можете разегестрироваться
+            на конференцию, стать спонсором, а так же узнать программу
           </p>
           <div className="flex sm:flex-row flex-col mt-10 flex-wrap">
             <div className="sm:block hidden mr-2 my-2">
@@ -45,6 +43,19 @@ export default function Home() {
             <Link href="/registration">
               <a className="mb-4 sm:hidden block flex items-center">
                 <span className="mr-2 text-lg">Регистрация</span>
+                {arrow}
+              </a>
+            </Link>
+
+            <div className="sm:block hidden mr-2 my-2">
+              <Link href="/sponsor" passHref>
+                <Button>Стать спонсором</Button>
+              </Link>
+            </div>
+
+            <Link href="/sponsor">
+              <a className="mb-4 sm:hidden block flex items-center">
+                <span className="mr-2 text-lg">Стать спонсором</span>
                 {arrow}
               </a>
             </Link>
@@ -62,31 +73,31 @@ export default function Home() {
               </a>
             </Link>
 
-            <div className="sm:block hidden mr-2 my-2">
-              <Link href="/about" passHref>
-                <Button>Контакты</Button>
-              </Link>
-            </div>
+            {/*<div className="sm:block hidden mr-2 my-2">*/}
+            {/*  <Link href="/about" passHref>*/}
+            {/*    <Button>Контакты</Button>*/}
+            {/*  </Link>*/}
+            {/*</div>*/}
 
-            <Link href="/about">
-              <a className="mb-4 sm:hidden block flex items-center">
-                <span className="mr-2 text-lg">Контакты</span>
-                {arrow}
-              </a>
-            </Link>
+            {/*<Link href="/about">*/}
+            {/*  <a className="mb-4 sm:hidden block flex items-center">*/}
+            {/*    <span className="mr-2 text-lg">Контакты</span>*/}
+            {/*    {arrow}*/}
+            {/*  </a>*/}
+            {/*</Link>*/}
 
-            <div className="sm:block hidden mr-2 my-2">
-              <Link href="/gallery" passHref>
-                <Button>Галерея</Button>
-              </Link>
-            </div>
+            {/*<div className="sm:block hidden mr-2 my-2">*/}
+            {/*  <Link href="/gallery" passHref>*/}
+            {/*    <Button>Галерея</Button>*/}
+            {/*  </Link>*/}
+            {/*</div>*/}
 
-            <Link href="/gallery">
-              <a className="mb-4 sm:hidden block flex items-center">
-                <span className="mr-2 text-lg">Галерея</span>
-                {arrow}
-              </a>
-            </Link>
+            {/*<Link href="/gallery">*/}
+            {/*  <a className="mb-4 sm:hidden block flex items-center">*/}
+            {/*    <span className="mr-2 text-lg">Галерея</span>*/}
+            {/*    {arrow}*/}
+            {/*  </a>*/}
+            {/*</Link>*/}
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ export default function Final({ handleReset }: FinalProps) {
           </Link>
         </div>
         <div className="mr-2">
-          <Link href="/program" passHref>
+          <Link href="/sponsor" passHref>
             <Button type="dashed">Стать спонсором</Button>
           </Link>
         </div>

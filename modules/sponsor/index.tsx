@@ -2,11 +2,13 @@ import { useCallback, useMemo, useRef } from 'react'
 import { Finish, useLS, useStep, useValue } from '../registration/hooks'
 import { Input, Progress } from 'antd'
 import { questions } from './constants'
-import RegistrationHeader from '../registration/header'
+
 import { AnimatePresence, motion } from 'framer-motion'
 import Steps from '../registration/steps'
 import Final from './final'
 import { quizAnimation, State, stepAnimation } from '../registration'
+import { addSponsor } from './utils'
+import Header from '../../components/header'
 
 export default function Sponsor() {
   const state = useRef<State>({})
@@ -17,6 +19,8 @@ export default function Sponsor() {
 
   const handleFinish = useCallback(() => {
     setIsFinished(Finish.Yes)
+
+    return addSponsor(state.current)
   }, [])
 
   const handleIncrement = useCallback(async () => {
@@ -68,8 +72,6 @@ export default function Sponsor() {
 
   return (
     <div className="h-screen relative overflow-hidden ">
-      <RegistrationHeader />
-
       {!loading && (
         <AnimatePresence initial={false} exitBeforeEnter={true}>
           {isFinal ? (
@@ -80,13 +82,14 @@ export default function Sponsor() {
               className="max-w-2xl sm:p-16 p-8 mx-auto flex flex-col justify-center h-full"
               {...quizAnimation}
             >
-              <div className="sm:h-[300px] h-inherit">
-                <h1 className="sm:mt-0 mt-36 mb-16 tracking-tight font-extrabold sm:text-3xl text-2xl">
+              <>
+                <h1 className="sm:mt-0 mt-36 mb-2 tracking-tight font-extrabold sm:text-3xl text-2xl">
                   <span className="block xl:inline">Спонсорство</span>{' '}
                   <span className="block text-indigo-600 xl:inline main-title">
                     Скиния 2022
                   </span>
                 </h1>
+                <p className="mb-10 text-gray-400">Заполните информацию</p>
                 <AnimatePresence initial={false} exitBeforeEnter={true}>
                   <motion.div key={step} {...stepAnimation}>
                     <div className="mb-2">
@@ -121,11 +124,13 @@ export default function Sponsor() {
                   value={value}
                   step={step}
                 />
-              </div>
+              </>
             </motion.div>
           )}
         </AnimatePresence>
       )}
+
+      <Header />
     </div>
   )
 }
