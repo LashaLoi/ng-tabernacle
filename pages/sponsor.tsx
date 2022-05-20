@@ -1,9 +1,8 @@
-import RegistrationModule from '../modules/registration'
+import SponsorModule from '../modules/sponsor'
 import { motion } from 'framer-motion'
-
 import { defaultVariants } from './index'
 
-export default function Registration() {
+export default function Sponsor() {
   return (
     <motion.div
       variants={defaultVariants}
@@ -12,7 +11,7 @@ export default function Registration() {
       exit="exit"
       transition={{ duration: 0.3 }}
     >
-      <RegistrationModule />
+      <SponsorModule />
     </motion.div>
   )
 }

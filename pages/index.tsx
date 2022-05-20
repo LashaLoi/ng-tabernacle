@@ -1,5 +1,6 @@
 import { Suspense, useCallback } from 'react'
 import Head from 'next/head'
+import { motion } from 'framer-motion'
 
 import { Canvas } from '@react-three/fiber'
 import { Stars } from '../components/tree/star'
@@ -7,6 +8,12 @@ import HomeModule from '../modules/home'
 import { FadeIn } from '../components/fade-in'
 import Image from 'next/image'
 import logo from '../public/logo.svg'
+
+export const defaultVariants = {
+  hidden: { opacity: 0 },
+  enter: { opacity: 1 },
+  exit: { opacity: 0 },
+}
 
 export const arrowDown = (
   <svg
@@ -32,11 +39,17 @@ export default function Home() {
   }, [])
 
   return (
-    <>
+    <motion.div
+      variants={defaultVariants}
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      transition={{ duration: 0.3 }}
+    >
       <Head>
         <title>Tabernacle</title>
       </Head>
-      <div className="relative flex flex-wrap md items-center h-screen">
+      <div className="relative flex flex-wrap md items-center h-screen bg-[#100120]">
         <div className="w-full md:w-1/2 h-screen relative">
           <div className="absolute top-0 w-full h-full flex justify-center">
             <div className="flex flex-col justify-center items-center">
@@ -73,6 +86,6 @@ export default function Home() {
           <HomeModule />
         </div>
       </div>
-    </>
+    </motion.div>
   )
 }
