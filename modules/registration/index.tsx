@@ -138,14 +138,20 @@ export default function Registration() {
               className="max-w-2xl sm:p-16 p-8 mx-auto flex flex-col justify-center"
               {...quizAnimation}
             >
-              <div className="mb-[200px]">
+              <div
+                className={`${
+                  currentQuestion.component === 'select'
+                    ? 'mb-[300px]'
+                    : 'mb-[180px]'
+                }`}
+              >
                 <h1 className="mb-2 tracking-tight font-extrabold sm:text-3xl text-2xl">
                   <span className="block xl:inline">Регистрация</span>{' '}
                   <span className="block text-indigo-600 xl:inline main-title">
                     Скиния 2022
                   </span>
                 </h1>
-                <p className="mb-10 text-gray-400">
+                <p className="mb-4 text-gray-400">
                   Зарегестрируйтесь и следите за обновлениями!
                 </p>
                 <AnimatePresence initial={false} exitBeforeEnter={true}>
@@ -210,7 +216,7 @@ export default function Registration() {
       <AnimatePresence initial={false}>
         {showNotification && (
           <motion.div
-            className="bg-gray-100 flex justify-center items-center px-6 py-4 fixed right-4 bottom-4 shadow-lg rounded"
+            className="sm:block hidden bg-gray-100 flex justify-center items-center px-6 py-4 fixed right-4 bottom-4 shadow-lg rounded"
             initial={{ opacity: 0, x: 100, scale: 0.3 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 100 }}
