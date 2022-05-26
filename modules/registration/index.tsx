@@ -138,7 +138,7 @@ export default function Registration() {
               className="max-w-2xl sm:p-16 p-8 mx-auto flex flex-col justify-center"
               {...quizAnimation}
             >
-              <div className="mb-20">
+              <div className="mb-[200px]">
                 <h1 className="mb-2 tracking-tight font-extrabold sm:text-3xl text-2xl">
                   <span className="block xl:inline">Регистрация</span>{' '}
                   <span className="block text-indigo-600 xl:inline main-title">
