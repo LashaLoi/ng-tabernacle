@@ -24,6 +24,7 @@ export type State = {
 }
 
 export default function Registration() {
+  const ref = useRef<HTMLInputElement>()
   const state = useRef<State>({})
   const [price, setPrice] = useLocalStorage('price', 60)
   const [showNotification, setShowNotification] = useState(false)
@@ -77,6 +78,8 @@ export default function Registration() {
     incrementStep()
 
     setValue(state.current[step + 1]?.value ?? '')
+
+    ref.current?.focus()
   }, [step, value, currentQuestion])
 
   const handleDecrement = useCallback(() => {
@@ -169,6 +172,7 @@ export default function Registration() {
                       />
                     ) : (
                       <Input
+                        ref={ref}
                         className="rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-900 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-900 focus:outline-none"
                         onChange={handleChange}
                         value={value}
