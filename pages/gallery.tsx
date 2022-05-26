@@ -4,6 +4,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Image, ScrollControls, Scroll, useScroll } from '@react-three/drei'
 import { useSnapshot } from 'valtio'
 import { Minimap, damp, state } from '../modules/gallery/minimap'
+import Header from '../components/header'
 
 function Item({
   index,

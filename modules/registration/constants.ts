@@ -6,8 +6,8 @@ export const questions = [
   },
   {
     label: 'Дата рождения',
-    placeholder: '1998-10-14',
-    component: 'datepicker',
+    placeholder: '14/10/1998',
+    component: 'input',
   },
   {
     label: 'Город',
@@ -96,11 +96,13 @@ export const questions = [
     placeholder: 'Размер / Нет',
     component: 'select',
     options: ['M', 'S', 'L', 'Нет'],
+    price: true,
   },
   {
     label: 'Приобрести шоппер с логотипом - 20 BYN',
     placeholder: 'Да / Нет',
     component: 'select',
     options: ['Да', 'Нет'],
+    price: true,
   },
 ]

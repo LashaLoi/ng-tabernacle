@@ -1,5 +1,6 @@
-import { Button } from 'antd'
+import { motion } from 'framer-motion'
 import { FadeIn } from './fade-in'
+import { PrimaryButton, DefaultButton } from './buttons'
 
 interface StepsProps {
   handleIncrement: () => void
@@ -18,13 +19,19 @@ export default function Steps({
 }: StepsProps) {
   return (
     <div className="mt-4 flex">
-      <Button className="mr-2" onClick={handleIncrement} disabled={!value}>
-        {step === questionsLength ? 'Завершить' : 'Далее'}
-      </Button>
+      <div className="flex space-x-2 justify-center">
+        <PrimaryButton
+          className="mr-2"
+          disabled={!value}
+          onClick={handleIncrement}
+        >
+          {step === questionsLength ? 'Завершить' : 'Далее'}
+        </PrimaryButton>
+      </div>
 
       {step > 0 && (
         <FadeIn>
-          <Button onClick={handleDecrement}>Назад</Button>
+          <DefaultButton onClick={handleDecrement}>Назад</DefaultButton>
         </FadeIn>
       )}
     </div>

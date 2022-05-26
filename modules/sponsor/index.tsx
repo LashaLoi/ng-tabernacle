@@ -1,7 +1,8 @@
 import { useCallback, useMemo, useRef } from 'react'
 import { Finish, useLS, useStep, useValue } from '../registration/hooks'
-import { Input, Progress } from 'antd'
+import { Input } from '../../components/input'
 import { questions } from './constants'
+import { Progress } from '../../components/progress'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import Steps from '../../components/steps'
@@ -71,7 +72,9 @@ export default function Sponsor() {
   const loading = useMemo(() => isFinished === null, [isFinished])
 
   return (
-    <div className="h-screen relative overflow-hidden ">
+    <div className="h-screen relative overflow-x-hidden">
+      <Header />
+
       {!loading && (
         <AnimatePresence initial={false} exitBeforeEnter={true}>
           {isFinal ? (
@@ -79,11 +82,11 @@ export default function Sponsor() {
           ) : (
             <motion.div
               key="quiz"
-              className="max-w-2xl sm:p-16 p-8 mx-auto flex flex-col justify-center h-full"
+              className="max-w-2xl sm:p-16 p-8 mx-auto flex flex-col justify-center"
               {...quizAnimation}
             >
-              <>
-                <h1 className="sm:mt-0 mt-36 mb-2 tracking-tight font-extrabold sm:text-3xl text-2xl">
+              <div className="mb-20">
+                <h1 className="mb-2 tracking-tight font-extrabold sm:text-3xl text-2xl">
                   <span className="block xl:inline">Спонсорство</span>{' '}
                   <span className="block text-indigo-600 xl:inline main-title">
                     Скиния 2022
@@ -106,15 +109,8 @@ export default function Sponsor() {
                   </motion.div>
                 </AnimatePresence>
 
-                <div className="mt-2">
-                  <Progress
-                    strokeLinecap="square"
-                    percent={percent}
-                    strokeColor={{
-                      '0%': '#c850c0',
-                      '100%': '#ffcc70',
-                    }}
-                  />
+                <div className="mt-4">
+                  <Progress percent={percent} />
                 </div>
 
                 <Steps
@@ -124,13 +120,11 @@ export default function Sponsor() {
                   value={value}
                   step={step}
                 />
-              </>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
       )}
-
-      <Header />
     </div>
   )
 }

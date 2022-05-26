@@ -13,7 +13,6 @@ export const questions = [
     label: 'Email',
     placeholder: 'lashaloi1409@gmail.com',
     component: 'input',
-    validation: /\S+@\S+\.\S+/,
   },
   {
     label: 'Пожертвование (BYN)',

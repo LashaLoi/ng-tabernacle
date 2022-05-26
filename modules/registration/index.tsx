@@ -1,24 +1,20 @@
-import { useCallback, useMemo, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import 'moment/locale/ru'
-import locale from 'antd/lib/date-picker/locale/ru_RU'
+import Select from 'react-select'
 
-import { DatePicker, Input, notification, Progress, Select, Modal } from 'antd'
+import { Modal } from '../../components/modal'
 
-import { Finish, useLS, useStep, useValue } from './hooks'
+import { Finish, useLocalStorage, useLS, useStep, useValue } from './hooks'
 
 import Header from '../../components/header'
+import { Input } from '../../components/input'
 import Steps from '../../components/steps'
 import Final from './final'
 
 import { createAnimation, register } from './utils'
 import { questions } from './constants'
-import {
-  FacebookOutlined,
-  InstagramOutlined,
-  YoutubeOutlined,
-} from '@ant-design/icons'
+import { Progress } from '../../components/progress'
 
 export const quizAnimation = createAnimation(50)
 export const stepAnimation = createAnimation(10)
@@ -29,43 +25,38 @@ export type State = {
 
 export default function Registration() {
   const state = useRef<State>({})
+  const [price, setPrice] = useLocalStorage('price', 60)
+  const [showNotification, setShowNotification] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+
+    if (showNotification) {
+      timeoutId = setTimeout(() => setShowNotification(false), 4000)
+    }
+
+    return () => clearTimeout(timeoutId)
+  }, [showNotification])
 
   const [step, incrementStep, decrementStep, setStep] = useStep()
+  const currentQuestion = useMemo(() => questions[step], [step])
+
   const [isFinished, setIsFinished] = useLS('finished')
   const [value, handleChange, setValue] = useValue()
 
   const handleFinish = useCallback(() => {
-    Modal.info({
-      centered: true,
-      title: 'Важная информация!',
-      content: (
-        <div className="flex flex-col">
-          <p>Команда школы СКИНИЯ 2021 не сможет обеспечить вас ночлегом.</p>
-          <p>Пожалуйста, учитывайте это в Ваших планах.</p>
-          <p>
-            На месте будет работать платное кафе, где вы сможете купить чай,
-            кофе, печенье
-          </p>
-        </div>
-      ),
-      onOk() {
-        notification.info({
-          message: 'Регистрация прошла успешно!',
-          placement: 'bottomRight',
-        })
-
-        setIsFinished(Finish.Yes)
-      },
-      okButtonProps: {
-        type: 'default',
-      },
-    })
+    setShowModal(true)
 
     return register(state.current)
   }, [])
 
   const handleIncrement = useCallback(async () => {
     state.current[step] = { value }
+
+    if (currentQuestion.price) {
+      setPrice(price + 20)
+    }
 
     const nextQuestion = questions[step + 1]
 
@@ -86,7 +77,7 @@ export default function Registration() {
     incrementStep()
 
     setValue(state.current[step + 1]?.value ?? '')
-  }, [step, value])
+  }, [step, value, currentQuestion])
 
   const handleDecrement = useCallback(() => {
     let prevQuestion = state.current[step - 1]
@@ -107,11 +98,16 @@ export default function Registration() {
 
     setValue('')
     setStep(0)
+    setPrice(60)
 
     setIsFinished(Finish.No)
   }, [])
 
-  const currentQuestion = useMemo(() => questions[step], [step])
+  const handleModalClose = useCallback(() => {
+    setShowModal(false)
+    setShowNotification(true)
+    setIsFinished(Finish.Yes)
+  }, [])
 
   const isFinal = useMemo(
     () => !currentQuestion || isFinished === Finish.Yes,
@@ -126,19 +122,21 @@ export default function Registration() {
   const loading = useMemo(() => isFinished === null, [isFinished])
 
   return (
-    <div className="h-screen relative overflow-hidden ">
+    <div className="h-screen relative overflow-x-hidden">
+      <Header />
+
       {!loading && (
         <AnimatePresence initial={false} exitBeforeEnter={true}>
           {isFinal ? (
-            <Final handleReset={handleReset} />
+            <Final handleReset={handleReset} price={price} />
           ) : (
             <motion.div
               key="quiz"
-              className="max-w-2xl sm:p-16 p-8 mx-auto flex flex-col justify-center h-full"
+              className="max-w-2xl sm:p-16 p-8 mx-auto flex flex-col justify-center"
               {...quizAnimation}
             >
-              <div className="sm:h-[300px] h-inherit">
-                <h1 className="sm:mt-0 mt-36 mb-2 tracking-tight font-extrabold sm:text-3xl text-2xl">
+              <div className="mb-20">
+                <h1 className="mb-2 tracking-tight font-extrabold sm:text-3xl text-2xl">
                   <span className="block xl:inline">Регистрация</span>{' '}
                   <span className="block text-indigo-600 xl:inline main-title">
                     Скиния 2022
@@ -150,7 +148,7 @@ export default function Registration() {
                 <AnimatePresence initial={false} exitBeforeEnter={true}>
                   <motion.div key={step} {...stepAnimation}>
                     <div className="mb-2">
-                      <p className="text-gray-600 text-lg">
+                      <p className="text-gray-500 text-lg">
                         {currentQuestion.label}
                       </p>
                     </div>
@@ -158,30 +156,20 @@ export default function Registration() {
                       <Select
                         autoFocus
                         defaultValue={value || undefined}
-                        style={{ width: '100%' }}
                         placeholder={currentQuestion.placeholder}
-                        onChange={(value) =>
+                        onChange={(value: any) =>
                           handleChange({ target: { value } })
                         }
-                      >
-                        {currentQuestion.options!.map((option) => (
-                          <Select.Option key={option} value={option}>
-                            {option}
-                          </Select.Option>
-                        ))}
-                      </Select>
-                    ) : currentQuestion.component === 'datepicker' ? (
-                      <DatePicker
-                        locale={locale}
-                        autoFocus
-                        placeholder={value || currentQuestion.placeholder}
-                        style={{ width: '100%' }}
-                        onChange={(_: unknown, value: string) =>
-                          handleChange({ target: { value } })
+                        options={
+                          currentQuestion.options!.map((option) => ({
+                            value: option,
+                            label: option,
+                          })) as any
                         }
                       />
                     ) : (
                       <Input
+                        className="rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-900 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-900 focus:outline-none"
                         onChange={handleChange}
                         value={value}
                         autoFocus
@@ -191,15 +179,15 @@ export default function Registration() {
                   </motion.div>
                 </AnimatePresence>
 
-                <div className="mt-2">
-                  <Progress
-                    strokeLinecap="square"
-                    percent={percent}
-                    strokeColor={{
-                      '0%': '#c850c0',
-                      '100%': '#ffcc70',
-                    }}
-                  />
+                <div className="mt-4">
+                  <Progress percent={percent} />
+                </div>
+
+                <div className="my-2 text-lg">
+                  <p>
+                    Стоимость пакета:{' '}
+                    <span className="text-gray-500">{price} BYN</span>
+                  </p>
                 </div>
 
                 <Steps
@@ -215,7 +203,25 @@ export default function Registration() {
         </AnimatePresence>
       )}
 
-      <Header />
+      <AnimatePresence initial={false}>
+        {showNotification && (
+          <motion.div
+            className="bg-gray-100 flex justify-center items-center px-6 py-4 fixed right-4 bottom-4 shadow-lg rounded"
+            initial={{ opacity: 0, x: 100, scale: 0.3 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{
+              delay: 0.7,
+            }}
+          >
+            <p className="text-lg">Вы успешно зарегестрировались!</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence initial={false}>
+        {showModal && <Modal handleClose={handleModalClose} />}
+      </AnimatePresence>
     </div>
   )
 }
