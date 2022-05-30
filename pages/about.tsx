@@ -1,12 +1,248 @@
+import Header from '../components/header'
+import { useCallback, useEffect, useState } from 'react'
+import { addQuestion } from '../modules/about/utils'
+
+import { PrimaryButton } from '../components/buttons'
+import { Input } from '../components/input'
+import { AnimatePresence, motion } from 'framer-motion'
+
 export default function About() {
+  const [fullName, setFullName] = useState('')
+  const [message, setMessage] = useState('')
+  const [showNotification, setShowNotification] = useState(false)
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+
+    if (showNotification) {
+      timeoutId = setTimeout(() => setShowNotification(false), 4000)
+    }
+
+    return () => clearTimeout(timeoutId)
+  }, [showNotification])
+
+  const handleSubmit = useCallback(() => {
+    setFullName('')
+    setMessage('')
+    setShowNotification(true)
+
+    return addQuestion({
+      fullName,
+      message,
+    })
+  }, [fullName, message, setMessage])
+
   return (
-    <div>
-      {' '}
+    <div className="relative w-full overflow-x-hidden">
+      <Header />
+
+      <section className="text-gray-600 body-font relative">
+        <div className="w-full text-center">
+          <h2 className="text-3xl font-bold mb-2">Где мы находимся</h2>
+          <p>Смоленская 28 - Барановичи - Беларусь</p>
+        </div>
+        <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+          <div className="lg:w-2/3 md:w-1/2 w-full sm:h-[500px] h-[400px] bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+            <iframe
+              width="100%"
+              height="100%"
+              className="absolute inset-0"
+              title="map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2393.9171224462784!2d26.026471415711562!3d53.12963329862263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d8cfe1a9c1c715%3A0x2844f8b8b22c6888!2sUlitsa%20Smolenskaya%2028%2C%20Baranavi%C4%8Dy%2C%20Belarus!5e0!3m2!1sen!2sus!4v1653587038964!5m2!1sen!2sus"
+            ></iframe>
+          </div>
+          <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+            <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
+              Задайте вопрос
+            </h2>
+            <p className="leading-relaxed mb-5 text-gray-600">
+              Если у вас есть какие-нибудь вопросы по конференции задайте свой
+              вопрос
+            </p>
+            <div className="relative mb-4">
+              <label htmlFor="name" className="leading-7 text-sm text-gray-600">
+                Электронная почта
+              </label>
+              <Input
+                value={fullName}
+                onChange={({ target: { value } }) => setFullName(value)}
+              />
+            </div>
+
+            <div className="relative mb-4">
+              <label
+                htmlFor="message"
+                className="leading-7 text-sm text-gray-600"
+              >
+                Вопрос
+              </label>
+              <textarea
+                value={message}
+                onChange={({ target: { value } }) => setMessage(value)}
+                id="message"
+                name="message"
+                className="w-full bg-white rounded border border-gray-300 focus:border-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              ></textarea>
+            </div>
+            <PrimaryButton
+              disabled={!fullName || !message}
+              onClick={handleSubmit}
+            >
+              Отправить
+            </PrimaryButton>
+          </div>
+        </div>
+      </section>
+      <div>
+        <section className="text-gray-700">
+          <div className="container px-5 py-24 mx-auto">
+            <div className="text-center mb-20">
+              <h1 className="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
+                Frequently Asked Question
+              </h1>
+              <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
+                The most common questions about how our business works and what
+                can do for you.
+              </p>
+            </div>
+            <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+              <div className="w-full lg:w-1/2 px-4 py-2">
+                <details className="mb-4">
+                  <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                    How Long is this site live?
+                  </summary>
+
+                  <span>
+                    Laboris qui labore cillum culpa in sunt quis sint veniam.
+                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
+                    minim velit nostrud pariatur culpa magna in aute.
+                  </span>
+                </details>
+                <details className="mb-4">
+                  <summary className="font-semibold bg-gray-200 rounded-md py-2 px-4">
+                    Can I install/upload anything I want on there?
+                  </summary>
+
+                  <span>
+                    Laboris qui labore cillum culpa in sunt quis sint veniam.
+                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
+                    minim velit nostrud pariatur culpa magna in aute.
+                  </span>
+                </details>
+                <details className="mb-4">
+                  <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                    How can I migrate to another site?
+                  </summary>
+
+                  <span>
+                    Laboris qui labore cillum culpa in sunt quis sint veniam.
+                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
+                    minim velit nostrud pariatur culpa magna in aute.
+                  </span>
+                </details>
+              </div>
+              <div className="w-full lg:w-1/2 px-4 py-2">
+                <details className="mb-4">
+                  <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                    Can I change the domain you give me?
+                  </summary>
+
+                  <span className="px-4 py-2">
+                    Laboris qui labore cillum culpa in sunt quis sint veniam.
+                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
+                    minim velit nostrud pariatur culpa magna in aute.
+                  </span>
+                </details>
+                <details className="mb-4">
+                  <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                    How many sites I can create at once?
+                  </summary>
+
+                  <span className="px-4 py-2">
+                    Laboris qui labore cillum culpa in sunt quis sint veniam.
+                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
+                    minim velit nostrud pariatur culpa magna in aute.
+                  </span>
+                </details>
+                <details className="mb-4">
+                  <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                    How can I communicate with you?
+                  </summary>
+
+                  <span className="px-4 py-2">
+                    Laboris qui labore cillum culpa in sunt quis sint veniam.
+                    Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
+                    minim velit nostrud pariatur culpa magna in aute.
+                  </span>
+                </details>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section className="text-gray-600 body-font">
+        <div className="w-full text-center">
+          <h2 className="text-3xl font-bold">Основные направления</h2>
+        </div>
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap -m-4">
+            <div className="p-4 lg:w-1/3">
+              <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                  Категория
+                </h2>
+                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-10">
+                  ВАЖНЫЕ ТЕМЫ
+                </h1>
+
+                <p className="leading-relaxed mb-2">
+                  - истоки и природа поклонения
+                </p>
+                <p className="leading-relaxed mb-2">
+                  - восстановление скинии Давида
+                </p>
+                <p className="leading-relaxed mb-2">
+                  - рождение мелодий и песен
+                </p>
+              </div>
+            </div>
+            <div className="p-4 lg:w-1/3">
+              <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                  Категория
+                </h2>
+                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-10">
+                  МАСТЕР-КЛАССЫ
+                </h1>
+                <p className="leading-relaxed mb-2">
+                  - открытая пультовая/звукорежиссура
+                </p>
+                <p className="leading-relaxed mb-2">- аранжировка</p>
+                <p className="leading-relaxed mb-2">- танец как поклонение</p>
+              </div>
+            </div>
+            <div className="p-4 lg:w-1/3">
+              <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                  Категория
+                </h2>
+                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
+                  ВЕЧЕРА ХВАЛЫ И ПОКЛОНЕНИЯ
+                </h1>
+                <p className="leading-relaxed mb-3">
+                  В этом году мы меняем формат вечеров для того, чтобы больше и
+                  больше погружаться в глубины Божьи! Это особенные вечера
+                  атмосферы открытых небес и движения Духа Святого!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <div className="container my-24 px-6 mx-auto">
         <section className="mb-32 text-gray-800 text-center">
-          <h2 className="text-3xl font-bold mb-12">
-            Meet the <u className="text-blue-600">team</u>
-          </h2>
+          <h2 className="text-3xl font-bold mb-12">Приглашенные спикеры</h2>
 
           <div className="grid md:grid-cols-3 gap-x-6 lg:gap-x-12">
             <div className="mb-6 lg:mb-0">
@@ -34,44 +270,6 @@ export default function About() {
                 <div className="p-6">
                   <h5 className="text-lg font-bold mb-4">Maria Smith</h5>
                   <p className="text-gray-500 mb-4">Frontend Developer</p>
-                  <ul className="list-inside flex mx-auto justify-center">
-                    <a href="#!" className="px-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 320 512"
-                        className="w-4 h-4 text-blue-600"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-                        />
-                      </svg>
-                    </a>
-                    <a href="#!" className="px-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                        className="w-4 h-4 text-blue-600"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
-                        />
-                      </svg>
-                    </a>
-                    <a href="#!" className="px-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512"
-                        className="w-4 h-4 text-blue-600"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
-                        />
-                      </svg>
-                    </a>
-                  </ul>
                 </div>
               </div>
             </div>
@@ -101,44 +299,6 @@ export default function About() {
                 <div className="p-6">
                   <h5 className="text-lg font-bold mb-4">Darren Randolph</h5>
                   <p className="text-gray-500 mb-4">Marketing expert</p>
-                  <ul className="list-inside flex mx-auto justify-center">
-                    <a href="#!" className="px-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 320 512"
-                        className="w-4 h-4 text-blue-600"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-                        />
-                      </svg>
-                    </a>
-                    <a href="#!" className="px-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                        className="w-4 h-4 text-blue-600"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
-                        />
-                      </svg>
-                    </a>
-                    <a href="#!" className="px-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512"
-                        className="w-4 h-4 text-blue-600"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
-                        />
-                      </svg>
-                    </a>
-                  </ul>
                 </div>
               </div>
             </div>
@@ -168,50 +328,59 @@ export default function About() {
                 <div className="p-6">
                   <h5 className="text-lg font-bold mb-4">Ayat Black</h5>
                   <p className="text-gray-500 mb-4">Web designer</p>
-                  <ul className="list-inside flex mx-auto justify-center">
-                    <a href="#!" className="px-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                        className="w-4 h-4 text-blue-600"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M256 8C119.252 8 8 119.252 8 256s111.252 248 248 248 248-111.252 248-248S392.748 8 256 8zm163.97 114.366c29.503 36.046 47.369 81.957 47.835 131.955-6.984-1.477-77.018-15.682-147.502-6.818-5.752-14.041-11.181-26.393-18.617-41.614 78.321-31.977 113.818-77.482 118.284-83.523zM396.421 97.87c-3.81 5.427-35.697 48.286-111.021 76.519-34.712-63.776-73.185-116.168-79.04-124.008 67.176-16.193 137.966 1.27 190.061 47.489zm-230.48-33.25c5.585 7.659 43.438 60.116 78.537 122.509-99.087 26.313-186.36 25.934-195.834 25.809C62.38 147.205 106.678 92.573 165.941 64.62zM44.17 256.323c0-2.166.043-4.322.108-6.473 9.268.19 111.92 1.513 217.706-30.146 6.064 11.868 11.857 23.915 17.174 35.949-76.599 21.575-146.194 83.527-180.531 142.306C64.794 360.405 44.17 310.73 44.17 256.323zm81.807 167.113c22.127-45.233 82.178-103.622 167.579-132.756 29.74 77.283 42.039 142.053 45.189 160.638-68.112 29.013-150.015 21.053-212.768-27.882zm248.38 8.489c-2.171-12.886-13.446-74.897-41.152-151.033 66.38-10.626 124.7 6.768 131.947 9.055-9.442 58.941-43.273 109.844-90.795 141.978z"
-                        />
-                      </svg>
-                    </a>
-                    <a href="#!" className="px-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512"
-                        className="w-4 h-4 text-blue-600"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
-                        />
-                      </svg>
-                    </a>
-                    <a href="#!" className="px-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512"
-                        className="w-4 h-4 text-blue-600"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-                        />
-                      </svg>
-                    </a>
-                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        <section className="text-gray-600 body-font">
+          <div className="container px-5 py-24 mx-auto">
+            <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                className="inline-block w-8 h-8 text-gray-400 mb-8"
+                viewBox="0 0 975.036 975.036"
+              >
+                <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+              </svg>
+              <p className="leading-relaxed text-lg">
+                Edison bulb retro cloud bread echo park, helvetica stumptown
+                taiyaki taxidermy 90&apos;s cronut +1 kinfolk. Single-origin
+                coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar
+                cronut adaptogen squid fanny pack vaporware. Man bun next level
+                coloring book skateboard four loko knausgaard. Kitsch keffiyeh
+                master cleanse direct trade indigo juice before they sold out
+                gentrify plaid gastropub normcore XOXO 90&apos;s pickled cindigo
+                jean shorts. Slow-carb next level shoindigoitch ethical
+                authentic, yr scenester sriracha forage franzen organic drinking
+                vinegar.
+              </p>
+              <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
+              <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">
+                HOLDEN CAULFIELD
+              </h2>
+              <p className="text-gray-500">Senior Product Designer</p>
+            </div>
+          </div>
+        </section>
       </div>
+
+      <AnimatePresence initial={false}>
+        {showNotification && (
+          <motion.div
+            className="sm:block hidden bg-gray-100 flex justify-center items-center px-6 py-4 fixed right-4 bottom-4 shadow-lg rounded"
+            initial={{ opacity: 0, x: 100, scale: 0.3 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{
+              delay: 0.7,
+            }}
+          >
+            <p className="text-lg">Ваш вопрос отправлен!</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

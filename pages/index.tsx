@@ -40,6 +40,7 @@ export default function Home() {
 
   return (
     <motion.div
+      key="index"
       variants={defaultVariants}
       initial="hidden"
       animate="enter"

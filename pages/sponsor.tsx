@@ -5,6 +5,7 @@ import { defaultVariants } from './index'
 export default function Sponsor() {
   return (
     <motion.div
+      key="sponsor"
       variants={defaultVariants}
       initial="hidden"
       animate="enter"

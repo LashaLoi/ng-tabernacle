@@ -6,6 +6,7 @@ import { defaultVariants } from './index'
 export default function Registration() {
   return (
     <motion.div
+      key="registration"
       variants={defaultVariants}
       initial="hidden"
       animate="enter"

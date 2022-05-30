@@ -29,8 +29,5 @@ export const parseData = (state: State) => ({
   but_shopper: state[16]?.value ?? '-',
 })
 
-export const register = (state: State) => {
-  console.log(state)
-}
-// supabase.from('User').insert(parseData(state))
-// .then(console.log)
+export const register = (state: State) =>
+  supabase.from('User').insert(parseData(state)).then(console.log)

@@ -24,7 +24,6 @@ export type State = {
 }
 
 export default function Registration() {
-  const ref = useRef<HTMLInputElement>()
   const state = useRef<State>({})
   const [price, setPrice] = useLocalStorage('price', 60)
   const [showNotification, setShowNotification] = useState(false)
@@ -55,10 +54,6 @@ export default function Registration() {
   const handleIncrement = useCallback(async () => {
     state.current[step] = { value }
 
-    if (currentQuestion.price) {
-      setPrice(price + 20)
-    }
-
     const nextQuestion = questions[step + 1]
 
     if (nextQuestion?.depend && nextQuestion.value !== value) {
@@ -66,7 +61,13 @@ export default function Registration() {
 
       incrementStep(2)
 
-      return setValue(state.current[step + 2]?.value ?? '')
+      setValue(state.current[step + 2]?.value ?? '')
+
+      return
+    }
+
+    if (currentQuestion.price) {
+      setPrice(price + 20)
     }
 
     if (!nextQuestion) {
@@ -78,8 +79,6 @@ export default function Registration() {
     incrementStep()
 
     setValue(state.current[step + 1]?.value ?? '')
-
-    ref.current?.focus()
   }, [step, value, currentQuestion])
 
   const handleDecrement = useCallback(() => {
@@ -142,7 +141,7 @@ export default function Registration() {
                 className={`${
                   currentQuestion.component === 'select'
                     ? 'mb-[300px]'
-                    : 'mb-[180px]'
+                    : 'sm:mb-[100px] mb-[180px]'
                 }`}
               >
                 <h1 className="mb-2 tracking-tight font-extrabold sm:text-3xl text-2xl">
@@ -151,6 +150,7 @@ export default function Registration() {
                     Скиния 2022
                   </span>
                 </h1>
+                <p className="mb-2 text-gray-400">(20.07 - 23.07)</p>
                 <p className="mb-4 text-gray-400">
                   Зарегестрируйтесь и следите за обновлениями!
                 </p>
@@ -166,7 +166,7 @@ export default function Registration() {
                         autoFocus
                         defaultValue={value || undefined}
                         placeholder={currentQuestion.placeholder}
-                        onChange={(value: any) =>
+                        onChange={({ value }: any) =>
                           handleChange({ target: { value } })
                         }
                         options={
@@ -178,7 +178,6 @@ export default function Registration() {
                       />
                     ) : (
                       <Input
-                        ref={ref}
                         className="rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-900 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-900 focus:outline-none"
                         onChange={handleChange}
                         value={value}

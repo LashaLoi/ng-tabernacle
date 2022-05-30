@@ -143,19 +143,27 @@ const arrow = (
 
 export default function Home() {
   return (
-    <FadeIn>
-      <div className="h-screen w-full flex flex-col justify-center items-center p-2 relative">
-        <div className="p-12">
+    <div className="h-screen w-full flex flex-col justify-center items-center p-2 relative">
+      <div className="p-12">
+        <FadeIn delay={0.3}>
           <h1 className="tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl text-4xl">
             <span className="block text-indigo-600 xl:inline main-title">
               Скиния 2022
             </span>
           </h1>
+        </FadeIn>
+        <FadeIn delay={0.5}>
           <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl  md:mt-5 md:text-xl lg:mx-0">
-            Добро пожаловать на Скинию 2022! Здесь вы можете разегестрироваться
-            на конференцию, стать спонсором, а так же узнать программу
+            Добро пожаловать на Скинию 2022! На данном сайте вы можете
+            разегестрироваться на конференцию, стать спонсором, а так же
+            ознакомиться с программой
           </p>
+        </FadeIn>
+        <FadeIn delay={0.7}>
+          <p className="mt-2 text-gray-400">20.07 - 23.07</p>
+        </FadeIn>
 
+        <FadeIn delay={0.8}>
           <div className="flex sm:flex-row flex-col mt-10 flex-wrap">
             <div className="sm:block hidden mr-2 my-2">
               <Link href="/registration" passHref>
@@ -196,15 +204,17 @@ export default function Home() {
               </a>
             </Link>
           </div>
+        </FadeIn>
 
+        <FadeIn delay={1}>
           <div className="absolute bottom-10 flex">
             <div className="mr-4 cursor-pointer">{instagramIcon}</div>
             <div className="mr-4 cursor-pointer">{facebookIcon}</div>
             <div className="mr-4 cursor-pointer">{youtubeIcon}</div>
             <div className="cursor-pointer">{vkIcon}</div>
           </div>
-        </div>
+        </FadeIn>
       </div>
-    </FadeIn>
+    </div>
   )
 }

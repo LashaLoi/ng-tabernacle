@@ -6,6 +6,7 @@ import { defaultVariants } from './index'
 export default function Program() {
   return (
     <motion.div
+      key="program"
       variants={defaultVariants}
       initial="hidden"
       animate="enter"
@@ -15,9 +16,9 @@ export default function Program() {
     >
       <Header />
 
-      <div className="sm:p-8 p-0">
-        <div className="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
-          <div className="flex flex-col w-full sticky md:top-[320px] lg:w-1/3 mt-2 md:mt-12 sm:px-12 px-10">
+      <div className="sm:p-8 p-0 ">
+        <div className="w-full mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
+          <div className="flex flex-col w-full sticky md:top-[320px] lg:w-1/3 mt-2 md:mt-12 sm:px-20 px-10">
             <h1 className="tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl text-4xl">
               Программа
             </h1>
