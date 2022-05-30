@@ -4,7 +4,10 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Image, ScrollControls, Scroll, useScroll } from '@react-three/drei'
 import { useSnapshot } from 'valtio'
 import { Minimap, damp, state } from '../modules/gallery/minimap'
-import Header from '../components/header'
+import { useRouter } from 'next/router'
+import { useCallback } from 'react'
+import { LinkButton } from '../components/buttons'
+import { arrowDown } from './index'
 
 function Item({
   index,
@@ -113,12 +116,22 @@ export const App = () => (
 )
 
 export default function Gallery() {
+  const router = useRouter()
+
+  const handleBack = useCallback(() => {
+    router.back()
+  }, [])
+
   return (
     <div className="gallery relative h-screen">
       <div className="sm:pb-0 pb-[60px] h-screen">
         <Suspense fallback={null}>
           <App />
         </Suspense>
+
+        <div className="absolute w-full flex justify-center mt-10 top-0">
+          <LinkButton onClick={handleBack}>Вернуться</LinkButton>
+        </div>
       </div>
     </div>
   )

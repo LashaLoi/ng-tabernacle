@@ -25,7 +25,7 @@ export type State = {
 
 export default function Registration() {
   const state = useRef<State>({})
-  const [price, setPrice] = useLocalStorage('price', 60)
+  const [price, setPrice] = useLocalStorage('price', 120)
   const [showNotification, setShowNotification] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
@@ -150,10 +150,6 @@ export default function Registration() {
                     Скиния 2022
                   </span>
                 </h1>
-                <p className="mb-2 text-gray-400">(20.07 - 23.07)</p>
-                <p className="mb-4 text-gray-400">
-                  Зарегестрируйтесь и следите за обновлениями!
-                </p>
                 <AnimatePresence initial={false} exitBeforeEnter={true}>
                   <motion.div key={step} {...stepAnimation}>
                     <div className="mb-2">
@@ -192,7 +188,7 @@ export default function Registration() {
                   <Progress percent={percent} />
                 </div>
 
-                <div className="my-2 text-lg">
+                <div className="my-2 text-gray-700 text-lg">
                   <p>
                     Стоимость пакета:{' '}
                     <span className="text-gray-500">{price} BYN</span>

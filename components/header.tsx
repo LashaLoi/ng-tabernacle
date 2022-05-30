@@ -7,9 +7,44 @@ import { LinkButton } from './buttons'
 import {
   facebookIcon,
   instagramIcon,
+  telegramIcon,
   vkIcon,
   youtubeIcon,
 } from '../modules/home'
+
+const infoIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    />
+  </svg>
+)
+
+const galleryIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+    />
+  </svg>
+)
 
 const homeIcon = (
   <svg
@@ -85,6 +120,11 @@ const routes = [
     route: '/',
     icon: homeIcon,
   },
+  {
+    title: 'О конференции',
+    route: '/about',
+    icon: infoIcon,
+  },
   { title: 'Регистрация', route: '/registration', icon: userIcon },
   {
     title: 'Стать спонсором',
@@ -92,6 +132,7 @@ const routes = [
     icon: moneyIcon,
   },
   { title: 'Программа', route: '/program', icon: listIcon },
+  { title: 'Галерея', route: '/gallery', icon: galleryIcon },
 ]
 
 export default function Header() {
@@ -113,7 +154,7 @@ export default function Header() {
           </span>
         </Link>
       </div>
-      <div className="absolute right-10 top-10 md:block hidden flex">
+      <div className="absolute ml-[550px] right-10 top-10 md:block hidden flex">
         {routes.map(({ route, title }) => (
           <Link href={route} passHref key={title}>
             <LinkButton
@@ -138,7 +179,7 @@ export default function Header() {
           d="M0,288L48,256C96,224,192,160,288,160C384,160,480,224,576,213.3C672,203,768,117,864,85.3C960,53,1056,75,1152,69.3C1248,64,1344,32,1392,16L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
         />
       </svg>
-      <div className="flex justify-between items-center fixed text-center w-full px-8 bottom-0 md:hidden block z-30">
+      <div className="flex justify-between items-center fixed text-center w-full bottom-0 md:hidden block z-30">
         {routes.map(({ route, title, icon }) => (
           <Link href={route} passHref key={title}>
             <LinkButton
@@ -153,10 +194,46 @@ export default function Header() {
       </div>
 
       <div className="fixed left-10 bottom-10 md:flex hidden z-30">
-        <div className="mr-4 cursor-pointer">{instagramIcon}</div>
-        <div className="mr-4 cursor-pointer">{facebookIcon}</div>
-        <div className="mr-4 cursor-pointer">{youtubeIcon}</div>
-        <div className="cursor-pointer">{vkIcon}</div>
+        <a
+          href="https://www.instagram.com/ngbelarus/"
+          target="_blank"
+          rel="noreferrer"
+          className="mr-4 cursor-pointer"
+        >
+          {instagramIcon}
+        </a>
+        <a
+          href="https://www.facebook.com/NGBelarus"
+          target="_blank"
+          rel="noreferrer"
+          className="mr-4 cursor-pointer"
+        >
+          {facebookIcon}
+        </a>
+        <a
+          href="https://www.youtube.com/user/NewGenerationBY"
+          target="_blank"
+          rel="noreferrer"
+          className="mr-4 cursor-pointer"
+        >
+          {youtubeIcon}
+        </a>
+        <a
+          href="https://vk.com/skinia2022"
+          target="_blank"
+          rel="noreferrer"
+          className="mr-4 cursor-pointer"
+        >
+          {vkIcon}
+        </a>
+        <a
+          href="https://t.me/skiniaby"
+          target="_blank"
+          rel="noreferrer"
+          className="cursor-pointer"
+        >
+          {telegramIcon}
+        </a>
       </div>
     </>
   )

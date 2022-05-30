@@ -5,11 +5,6 @@ export const questions = [
     component: 'input',
   },
   {
-    label: 'Фил',
-    placeholder: 'ПРИВЕТ КАК ДЕЛА',
-    component: 'input',
-  },
-  {
     label: 'Дата рождения',
     placeholder: '14/10/1998',
     component: 'input',

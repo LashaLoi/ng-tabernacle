@@ -92,7 +92,6 @@ export default function Sponsor() {
                     Скиния 2022
                   </span>
                 </h1>
-                <p className="mb-10 text-gray-400">Заполните информацию</p>
                 <AnimatePresence initial={false} exitBeforeEnter={true}>
                   <motion.div key={step} {...stepAnimation}>
                     <div className="mb-2">

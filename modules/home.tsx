@@ -2,7 +2,12 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FadeIn } from '../components/fade-in'
 
-import { OutlinedButton, PrimaryButton } from '../components/buttons'
+import {
+  DefaultButton,
+  LinkButton,
+  OutlinedButton,
+  PrimaryButton,
+} from '../components/buttons'
 
 export const instagramIcon = (
   <motion.svg
@@ -124,6 +129,38 @@ export const youtubeIcon = (
   </motion.svg>
 )
 
+export const telegramIcon = (
+  <motion.svg
+    fill="#64748b"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24px"
+    height="24px"
+    whileHover={{
+      scale: 1.2,
+    }}
+    whileTap={{ scale: 0.9 }}
+  >
+    <motion.path
+      initial={{
+        opacity: 0,
+        pathLength: 0,
+      }}
+      transition={{
+        duration: 1,
+        ease: 'easeInOut',
+      }}
+      animate={{
+        opacity: 1,
+        pathLength: 1,
+      }}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M 20.572266 3.0117188 C 20.239891 2.9764687 19.878625 3.028375 19.515625 3.171875 C 19.065625 3.348875 12.014406 6.3150313 5.4414062 9.0820312 L 3.2695312 9.9960938 C 2.4285313 10.337094 2.0039062 10.891672 2.0039062 11.638672 C 2.0039062 12.161672 2.22525 12.871063 3.28125 13.289062 L 6.9472656 14.757812 C 7.2642656 15.708813 8.0005469 17.916906 8.1855469 18.503906 C 8.2955469 18.851906 8.5733906 19.728594 9.2753906 19.933594 C 9.4193906 19.982594 9.5696563 20.007813 9.7226562 20.007812 C 10.165656 20.007812 10.484625 19.801641 10.640625 19.681641 L 12.970703 17.710938 L 15.800781 20.328125 C 15.909781 20.439125 16.486719 21 17.261719 21 C 18.228719 21 18.962234 20.195016 19.115234 19.416016 C 19.198234 18.989016 21.927734 5.2870625 21.927734 5.2890625 C 22.172734 4.1900625 21.732219 3.6199531 21.449219 3.3769531 C 21.206719 3.1694531 20.904641 3.0469688 20.572266 3.0117188 z M 19.910156 5.171875 C 19.533156 7.061875 17.478016 17.378234 17.166016 18.865234 L 13.029297 15.039062 L 10.222656 17.416016 L 11 14.375 C 11 14.375 16.362547 8.9468594 16.685547 8.6308594 C 16.945547 8.3778594 17 8.2891719 17 8.2011719 C 17 8.0841719 16.939781 8 16.800781 8 C 16.675781 8 16.506016 8.1197812 16.416016 8.1757812 C 15.272669 8.8885973 10.404094 11.662239 8.0078125 13.025391 L 4.53125 11.636719 L 6.21875 10.927734 C 10.51775 9.1177344 18.174156 5.893875 19.910156 5.171875 z"
+    />
+  </motion.svg>
+)
+
 const arrow = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +170,19 @@ const arrow = (
     stroke="currentColor"
     strokeWidth={2}
   >
-    <path
+    <motion.path
+      initial={{
+        opacity: 0,
+        pathLength: 0,
+      }}
+      transition={{
+        duration: 1,
+        ease: 'easeInOut',
+      }}
+      animate={{
+        opacity: 1,
+        pathLength: 1,
+      }}
       strokeLinecap="round"
       strokeLinejoin="round"
       d="M17 8l4 4m0 0l-4 4m4-4H3"
@@ -164,12 +213,38 @@ export default function Home() {
         </FadeIn>
 
         <FadeIn delay={0.8}>
-          <div className="flex sm:flex-row flex-col mt-10 flex-wrap">
+          <div className="flex sm:flex-row  flex-col mt-10 flex-wrap max-w-[400px]">
             <div className="sm:block hidden mr-2 my-2">
               <Link href="/registration" passHref>
                 <PrimaryButton>Регистрация</PrimaryButton>
               </Link>
             </div>
+
+            <div className="sm:block hidden mr-2 my-2">
+              <Link href="/about" passHref>
+                <PrimaryButton>О конференции</PrimaryButton>
+              </Link>
+            </div>
+
+            <div className="sm:block hidden mr-2 my-2">
+              <Link href="/sponsor" passHref>
+                <DefaultButton>Стать спонсором</DefaultButton>
+              </Link>
+            </div>
+
+            <div className="sm:block hidden mr-2 my-2">
+              <Link href="/program" passHref>
+                <DefaultButton>Программа</DefaultButton>
+              </Link>
+            </div>
+
+            <div className="sm:block hidden mr-2 my-2">
+              <Link href="/gallery" passHref>
+                <DefaultButton>Галерея</DefaultButton>
+              </Link>
+            </div>
+
+            {/*//*/}
 
             <Link href="/registration">
               <a className="mb-4 sm:hidden block flex items-center">
@@ -178,11 +253,12 @@ export default function Home() {
               </a>
             </Link>
 
-            <div className="sm:block hidden mr-2 my-2">
-              <Link href="/sponsor" passHref>
-                <OutlinedButton>Стать спонсором</OutlinedButton>
-              </Link>
-            </div>
+            <Link href="/about">
+              <a className="mb-4 sm:hidden block flex items-center">
+                <span className="mr-2 text-lg">О конференции</span>
+                {arrow}
+              </a>
+            </Link>
 
             <Link href="/sponsor">
               <a className="mb-4 sm:hidden block flex items-center">
@@ -191,15 +267,16 @@ export default function Home() {
               </a>
             </Link>
 
-            <div className="sm:block hidden mr-2 my-2">
-              <Link href="/program" passHref>
-                <OutlinedButton>Программа</OutlinedButton>
-              </Link>
-            </div>
-
             <Link href="/program">
               <a className="mb-4 sm:hidden block flex items-center">
                 <span className="mr-2 text-lg">Программа</span>
+                {arrow}
+              </a>
+            </Link>
+
+            <Link href="/gallery" passHref>
+              <a className="mb-4 sm:hidden block flex items-center">
+                <span className="mr-2 text-lg">Галерея</span>
                 {arrow}
               </a>
             </Link>
@@ -208,10 +285,46 @@ export default function Home() {
 
         <FadeIn delay={1}>
           <div className="absolute bottom-10 flex">
-            <div className="mr-4 cursor-pointer">{instagramIcon}</div>
-            <div className="mr-4 cursor-pointer">{facebookIcon}</div>
-            <div className="mr-4 cursor-pointer">{youtubeIcon}</div>
-            <div className="cursor-pointer">{vkIcon}</div>
+            <a
+              href="https://www.instagram.com/ngbelarus/"
+              target="_blank"
+              rel="noreferrer"
+              className="mr-4 cursor-pointer"
+            >
+              {instagramIcon}
+            </a>
+            <a
+              href="https://www.facebook.com/NGBelarus"
+              target="_blank"
+              rel="noreferrer"
+              className="mr-4 cursor-pointer"
+            >
+              {facebookIcon}
+            </a>
+            <a
+              href="https://www.youtube.com/user/NewGenerationBY"
+              target="_blank"
+              rel="noreferrer"
+              className="mr-4 cursor-pointer"
+            >
+              {youtubeIcon}
+            </a>
+            <a
+              href="https://vk.com/skinia2022"
+              target="_blank"
+              rel="noreferrer"
+              className="mr-4 cursor-pointer"
+            >
+              {vkIcon}
+            </a>
+            <a
+              href="https://t.me/skiniaby"
+              target="_blank"
+              rel="noreferrer"
+              className="cursor-pointer"
+            >
+              {telegramIcon}
+            </a>
           </div>
         </FadeIn>
       </div>
