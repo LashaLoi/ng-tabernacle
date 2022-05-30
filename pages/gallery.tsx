@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import dynamic from 'next/dynamic'
 import { useRef, useState, Suspense } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Image, ScrollControls, Scroll, useScroll } from '@react-three/drei'
@@ -7,7 +8,7 @@ import { Minimap, damp, state } from '../modules/gallery/minimap'
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
 import { LinkButton } from '../components/buttons'
-import { arrowDown } from './index'
+import Head from 'next/head'
 
 function Item({
   index,
@@ -115,7 +116,7 @@ export const App = () => (
   </Canvas>
 )
 
-export default function Gallery() {
+function Gallery() {
   const router = useRouter()
 
   const handleBack = useCallback(() => {
@@ -124,6 +125,9 @@ export default function Gallery() {
 
   return (
     <div className="gallery relative h-screen">
+      <Head>
+        <title>Галерея</title>
+      </Head>
       <div className="sm:pb-0 pb-[60px] h-screen">
         <Suspense
           fallback={
@@ -142,3 +146,9 @@ export default function Gallery() {
     </div>
   )
 }
+
+const NoSSRGallery = dynamic(() => Promise.resolve(Gallery), {
+  ssr: false,
+})
+
+export default NoSSRGallery
