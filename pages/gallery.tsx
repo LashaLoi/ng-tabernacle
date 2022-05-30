@@ -125,7 +125,13 @@ export default function Gallery() {
   return (
     <div className="gallery relative h-screen">
       <div className="sm:pb-0 pb-[60px] h-screen">
-        <Suspense fallback={null}>
+        <Suspense
+          fallback={
+            <div className="w-full h-full justify-center items-center flex">
+              Загрузка галереи...
+            </div>
+          }
+        >
           <App />
         </Suspense>
 

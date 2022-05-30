@@ -187,8 +187,8 @@ export default function About() {
         </div>
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
-            <div className="p-4 lg:w-1/3">
-              <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+            <div className="p-4 lg:w-1/3 w-full">
+              <div className=" h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
                 <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
                   Категория
                 </h2>
@@ -207,7 +207,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="p-4 lg:w-1/3">
+            <div className="p-4 lg:w-1/3 w-full">
               <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
                 <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
                   Категория
@@ -222,7 +222,7 @@ export default function About() {
                 <p className="leading-relaxed mb-2">- танец как поклонение</p>
               </div>
             </div>
-            <div className="p-4 lg:w-1/3">
+            <div className="p-4 lg:w-1/3 w-full">
               <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
                 <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
                   Категория
@@ -333,8 +333,8 @@ export default function About() {
             </div>
           </div>
         </section>
-        <section className="text-gray-600 body-font">
-          <div className="container px-5 py-24 mx-auto">
+        <section className="text-gray-600 body-font mb-32">
+          <div className="container px-5  mx-auto">
             <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -361,6 +361,65 @@ export default function About() {
                 HOLDEN CAULFIELD
               </h2>
               <p className="text-gray-500">Senior Product Designer</p>
+            </div>
+          </div>
+        </section>
+        <section className="text-gray-600 body-font flex justify-center flex-col w-full items-center">
+          <div className="w-full text-center">
+            <h2 className="text-3xl font-bold">Контактные лица</h2>
+          </div>
+
+          <div className="p-4 max-w-md  sm:p-8">
+            <div className="flow-root">
+              <ul
+                role="list"
+                className="divide-y divide-gray-200 min-w-[400px] sm:p-0 p-8"
+              >
+                <li className="py-3 sm:py-4 ">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
+                      <img
+                        className="w-8 h-8 rounded-full"
+                        src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
+                        alt="Neil image"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-gray-900 truncate ">
+                        Эстэра Вороненко
+                      </p>
+                      <p className="text-sm text-gray-500 truncate ">
+                        tg: email@windster.com
+                      </p>
+                    </div>
+                    <div className="inline-flex items-center text-base font-semibold text-gray-900 ">
+                      +375 33 123 45 67
+                    </div>
+                  </div>
+                </li>
+                <li className="py-3 sm:py-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
+                      <img
+                        className="w-8 h-8 rounded-full"
+                        src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                        alt="Bonnie image"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-gray-900 truncate ">
+                        Анна Захаренко
+                      </p>
+                      <p className="text-sm text-gray-500 truncate ">
+                        tg: email@windster.com
+                      </p>
+                    </div>
+                    <div className="inline-flex items-center text-base font-semibold text-gray-900 ">
+                      +375 33 123 45 67
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
