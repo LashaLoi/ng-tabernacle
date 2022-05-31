@@ -1,6 +1,6 @@
 export const questions = [
   {
-    label: 'Полоное имя',
+    label: 'Полное имя',
     placeholder: 'Лой Алексей',
     component: 'input',
   },

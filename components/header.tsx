@@ -5,12 +5,29 @@ import { useRouter } from 'next/router'
 import { LinkButton } from './buttons'
 
 import {
+  arrow,
   facebookIcon,
   instagramIcon,
   telegramIcon,
   vkIcon,
   youtubeIcon,
 } from '../modules/home'
+import { FadeIn } from './fade-in'
+import { useCallback, useState } from 'react'
+import { Modal } from './modal'
+
+const arrowUp = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+  </svg>
+)
 
 const infoIcon = (
   <svg
@@ -153,8 +170,13 @@ const routes = [
   // { title: 'Галерея', route: '/gallery', icon: galleryIcon },
 ]
 
-export default function Header() {
+export default function Header({ show = true }: { show?: boolean }) {
   const router = useRouter()
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = useCallback(() => {
+    setOpen(true)
+  }, [])
 
   return (
     <>
@@ -186,30 +208,42 @@ export default function Header() {
         ))}
       </div>
 
-      <svg
-        className="fixed bottom-0 z-20 md:hidden block"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1000 320"
-        style={{ left: 0, bottom: 0 }}
-      >
-        <path
-          fill="#f8fafc"
-          d="M0,288L48,256C96,224,192,160,288,160C384,160,480,224,576,213.3C672,203,768,117,864,85.3C960,53,1056,75,1152,69.3C1248,64,1344,32,1392,16L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        />
-      </svg>
-      <div className="flex justify-between items-center fixed text-center w-full bottom-0 md:hidden block z-30">
-        {routes.map(({ route, title, icon }) => (
-          <Link href={route} passHref key={title}>
-            <LinkButton
-              style={{
-                color: router.pathname === route ? '#ffcc70' : undefined,
-              }}
-            >
-              {icon}
-            </LinkButton>
-          </Link>
-        ))}
-      </div>
+      {show && (
+        <FadeIn>
+          <div
+            onClick={handleOpen}
+            className="flex  justify-center flex-col items-center fixed text-center w-full bottom-2 md:hidden block z-30"
+          >
+            <div className="bg-white flex flex-col justify-center items-center rounded-lg px-2 py-1">
+              {arrowUp}
+              меню
+            </div>
+          </div>
+        </FadeIn>
+      )}
+
+      {open && (
+        <Modal onClose={() => setOpen(false)}>
+          <div className="flex flex-col justify-center">
+            {routes.map(({ route, title }) => (
+              <Link href={route} passHref key={title}>
+                <LinkButton
+                  style={{
+                    color: router.pathname === route ? '#ffcc70' : undefined,
+                  }}
+                  onClick={() => {
+                    if (router.pathname === route) {
+                      setOpen(false)
+                    }
+                  }}
+                >
+                  {title}
+                </LinkButton>
+              </Link>
+            ))}
+          </div>
+        </Modal>
+      )}
 
       <div className="fixed left-10 bottom-10 md:flex hidden z-30">
         <a

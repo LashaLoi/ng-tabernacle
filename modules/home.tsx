@@ -2,12 +2,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FadeIn } from '../components/fade-in'
 
-import {
-  DefaultButton,
-  LinkButton,
-  OutlinedButton,
-  PrimaryButton,
-} from '../components/buttons'
+import { DefaultButton, PrimaryButton } from '../components/buttons'
 
 export const instagramIcon = (
   <motion.svg
@@ -161,7 +156,7 @@ export const telegramIcon = (
   </motion.svg>
 )
 
-const arrow = (
+export const arrow = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className="h-6 w-6"

@@ -8,6 +8,7 @@ interface StepsProps {
   value: string
   step: number
   questionsLength: number
+  optional: boolean
 }
 
 export default function Steps({
@@ -16,6 +17,7 @@ export default function Steps({
   value,
   step,
   questionsLength,
+  optional,
 }: StepsProps) {
   return (
     <div className="mt-4 flex">
@@ -28,6 +30,14 @@ export default function Steps({
           {step === questionsLength ? 'Завершить' : 'Далее'}
         </PrimaryButton>
       </div>
+
+      {optional && (
+        <FadeIn>
+          <DefaultButton className="mr-2" onClick={handleIncrement}>
+            Пропустить
+          </DefaultButton>
+        </FadeIn>
+      )}
 
       {step > 0 && (
         <FadeIn>

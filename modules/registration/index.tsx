@@ -15,6 +15,7 @@ import Final from './final'
 import { createAnimation, register } from './utils'
 import { questions } from './constants'
 import { Progress } from '../../components/progress'
+import { PrimaryButton } from '../../components/buttons'
 
 export const quizAnimation = createAnimation(50)
 export const stepAnimation = createAnimation(10)
@@ -28,6 +29,7 @@ export default function Registration() {
   const [price, setPrice] = useLocalStorage('price', 120)
   const [showNotification, setShowNotification] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [show, setShow] = useState(true)
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout
@@ -125,7 +127,7 @@ export default function Registration() {
 
   return (
     <div className="h-screen relative overflow-x-hidden">
-      <Header />
+      <Header show={show} />
 
       {!loading && (
         <AnimatePresence initial={false} exitBeforeEnter={true}>
@@ -134,75 +136,80 @@ export default function Registration() {
           ) : (
             <motion.div
               key="quiz"
-              className="max-w-2xl sm:p-16 p-8 mx-auto flex flex-col justify-center"
+              className="max-w-2xl sm:px-16 px-8 mx-auto flex flex-col justify-center"
               {...quizAnimation}
             >
-              <div
-                className={`${
-                  currentQuestion.component === 'select'
-                    ? 'mb-[300px]'
-                    : 'sm:mb-[100px] mb-[180px]'
-                }`}
-              >
-                <h1 className="mb-2 tracking-tight font-extrabold sm:text-3xl text-2xl">
-                  <span className="block xl:inline">Регистрация</span>{' '}
-                  <span className="block text-indigo-600 xl:inline main-title">
-                    Скиния 2022
-                  </span>
-                </h1>
-                <AnimatePresence initial={false} exitBeforeEnter={true}>
-                  <motion.div key={step} {...stepAnimation}>
+              <h1 className="mb-2 tracking-tight font-extrabold sm:text-3xl text-2xl">
+                <span className="block xl:inline">Регистрация</span>{' '}
+                <span className="block text-indigo-600 xl:inline main-title">
+                  Скиния 2022
+                </span>
+              </h1>
+              <AnimatePresence initial={false} exitBeforeEnter={true}>
+                <motion.div key={step} {...stepAnimation}>
+                  <div className="mb-2">
+                    <p className="text-gray-500 text-lg">
+                      {currentQuestion.label}
+                    </p>
+                  </div>
+                  {currentQuestion.description && (
                     <div className="mb-2">
-                      <p className="text-gray-500 text-lg">
-                        {currentQuestion.label}
+                      <p className="text-gray-500 text-sm">
+                        {currentQuestion.description}
                       </p>
                     </div>
-                    {currentQuestion.component === 'select' ? (
-                      <Select
-                        autoFocus
-                        defaultValue={value || undefined}
-                        placeholder={currentQuestion.placeholder}
-                        onChange={({ value }: any) =>
-                          handleChange({ target: { value } })
-                        }
-                        options={
-                          currentQuestion.options!.map((option) => ({
-                            value: option,
-                            label: option,
-                          })) as any
-                        }
-                      />
-                    ) : (
-                      <Input
-                        className="rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-900 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-900 focus:outline-none"
-                        onChange={handleChange}
-                        value={value}
-                        autoFocus
-                        placeholder={currentQuestion.placeholder}
-                      />
-                    )}
-                  </motion.div>
-                </AnimatePresence>
+                  )}
+                  {currentQuestion.component === 'select' ? (
+                    <Select
+                      onFocus={() => setShow(false)}
+                      onBlur={() => setShow(true)}
+                      autoFocus
+                      defaultValue={value || undefined}
+                      placeholder={currentQuestion.placeholder}
+                      onChange={({ value }: any) => {
+                        !show && setShow(true)
 
-                <div className="mt-4">
-                  <Progress percent={percent} />
-                </div>
+                        handleChange({ target: { value } })
+                      }}
+                      options={
+                        currentQuestion.options!.map((option) => ({
+                          value: option,
+                          label: option,
+                        })) as any
+                      }
+                    />
+                  ) : (
+                    <Input
+                      type={currentQuestion.type}
+                      className="rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-900 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-900 focus:outline-none"
+                      onChange={handleChange}
+                      value={value}
+                      autoFocus
+                      placeholder={currentQuestion.placeholder}
+                    />
+                  )}
+                </motion.div>
+              </AnimatePresence>
 
-                <div className="my-2 text-gray-700 text-lg">
-                  <p>
-                    Стоимость пакета:{' '}
-                    <span className="text-gray-500">{price} BYN</span>
-                  </p>
-                </div>
-
-                <Steps
-                  questionsLength={questions.length - 1}
-                  handleIncrement={handleIncrement}
-                  handleDecrement={handleDecrement}
-                  value={value}
-                  step={step}
-                />
+              <div className="mt-4">
+                <Progress percent={percent} />
               </div>
+
+              <div className="my-2 text-gray-700 text-lg">
+                <p>
+                  Стоимость пакета:{' '}
+                  <span className="text-gray-500">{price} BYN</span>
+                </p>
+              </div>
+
+              <Steps
+                questionsLength={questions.length - 1}
+                handleIncrement={handleIncrement}
+                handleDecrement={handleDecrement}
+                optional={!!currentQuestion.optional}
+                value={value}
+                step={step}
+              />
             </motion.div>
           )}
         </AnimatePresence>
@@ -225,7 +232,34 @@ export default function Registration() {
       </AnimatePresence>
 
       <AnimatePresence initial={false}>
-        {showModal && <Modal handleClose={handleModalClose} />}
+        {showModal && (
+          <Modal onClose={handleModalClose}>
+            <div className="flex flex-col text-lg ">
+              <p className="font-extrabold mb-4 text-2xl text-center">
+                ВНИМАНИЕ!
+              </p>
+
+              <p className="mb-2">
+                Команда школы не предоставляет бесплатный ночлег, если вам нужна
+                помощь в поиске жилья в аренду, свяжитесь с нами +375 (29)
+                206-11-32 Анна
+              </p>
+              <p className="mb-2">
+                Приятный бонус для каждого участника - бесплатный обед!
+              </p>
+              <p className="mb-2">На месте будет работать платное кафе</p>
+              <p className="mb-4">
+                В этом году мы делаем открытый вечер хвалы в пятницу в 19:30,
+                остальные вечера только для участников школы!
+              </p>
+              <div className="text-center">
+                <PrimaryButton onClick={handleModalClose}>
+                  Понятно
+                </PrimaryButton>
+              </div>
+            </div>
+          </Modal>
+        )}
       </AnimatePresence>
     </div>
   )
