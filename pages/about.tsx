@@ -5,78 +5,49 @@ export default function About() {
     <div className="relative w-full overflow-x-hidden">
       <Header />
 
-      <section className="text-gray-600 body-font">
-        <div className="w-full text-center">
-          <h2 className="text-3xl font-bold">Основные направления</h2>
-        </div>
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap -m-4">
-            <div className="p-4 lg:w-1/3 w-full">
-              <div className=" h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                  Категория
-                </h2>
-                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-10">
-                  ВАЖНЫЕ ТЕМЫ
-                </h1>
+      <div className="container  px-6 mx-auto sm:text-2xl flex justify-center flex-col items-center">
+        <h2 className="text-3xl font-bold mb-12 text-blue-900">О школе</h2>
+        <section className="mb-32 text-gray-800 max-w-[800px]">
+          <p className="mb-8 text-justify">
+            Служение прославления было и остается одним из важнейших
+            составляющих любой современной церкви. Это служение требует,
+            высокого мастерства, как в духовных, так и в профессиональных
+            навыках.
+          </p>
+          <p className="mb-10 text-justify">
+            Школа поклонения{' '}
+            <span className="main-title font-extrabold">СКИНИЯ</span> - это
+            грамотное и разумное вложение своего времени и ресурсов, потому что
+            за эти дни каждый участник найдет для себя массу ответов и получит
+            стратегию и план для реформации своего служения, переведя его на
+            качественно новый уровень для славы нашего{' '}
+            <span className="font-bold text-blue-900">
+              Господа Иисуса Христа.
+            </span>
+          </p>
 
-                <p className="leading-relaxed mb-2">
-                  - истоки и природа поклонения
-                </p>
-                <p className="leading-relaxed mb-2">
-                  - восстановление скинии Давида
-                </p>
-                <p className="leading-relaxed mb-2">
-                  - рождение мелодий и песен
-                </p>
-              </div>
-            </div>
-            <div className="p-4 lg:w-1/3 w-full">
-              <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                  Категория
-                </h2>
-                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-10">
-                  МАСТЕР-КЛАССЫ
-                </h1>
-                <p className="leading-relaxed mb-2">
-                  - открытая пультовая/звукорежиссура
-                </p>
-                <p className="leading-relaxed mb-2">- аранжировка</p>
-                <p className="leading-relaxed mb-2">- танец как поклонение</p>
-              </div>
-            </div>
-            <div className="p-4 lg:w-1/3 w-full">
-              <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                  Категория
-                </h2>
-                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
-                  ВЕЧЕРА ХВАЛЫ И ПОКЛОНЕНИЯ
-                </h1>
-                <p className="leading-relaxed mb-3">
-                  В этом году мы меняем формат вечеров для того, чтобы больше и
-                  больше погружаться в глубины Божьи! Это особенные вечера
-                  атмосферы открытых небес и движения Духа Святого!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <p className="mb-2">Основные направления:</p>
+          <ul className="ml-4 text-gray-500">
+            <li>- учение о поклонении </li>
+            <li>- практическое применение знаний</li>
+            <li>- пророческое поклонение</li>
+            <li>- знакомство, общение</li>
+            <li>- обмен опытом</li>
+          </ul>
+        </section>
+      </div>
 
-      <div className="container my-24 px-6 mx-auto">
+      <div className="container mt-24 px-6 mx-auto">
         <section className="mb-32 text-gray-800 text-center">
-          <h2 className="text-3xl font-bold mb-12">Приглашенные педагоги</h2>
+          <h2 className="text-3xl font-bold mb-12 text-blue-900">
+            Приглашенные педагоги
+          </h2>
 
           <div className="grid md:grid-cols-3 gap-x-6 lg:gap-x-12">
             <div className="mb-6 lg:mb-0">
               <div className="bg-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                  <img
-                    src="https://mdbootstrap.com/img/new/avatars/6.jpg"
-                    className="w-full rounded-t-lg"
-                  />
+                  <img src="/1.jpg" className="w-full rounded-t-lg" />
                   <a href="#!">
                     <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                   </a>
@@ -93,8 +64,10 @@ export default function About() {
                   </svg>
                 </div>
                 <div className="p-6">
-                  <h5 className="text-lg font-bold mb-4">Maria Smith</h5>
-                  <p className="text-gray-500 mb-4">Frontend Developer</p>
+                  <h5 className="text-lg font-bold mb-4">Леонид Вороненко</h5>
+                  <p className="text-gray-500 mb-4">
+                    Старший пастор церквей «Новое Поколение» в Беларуси{' '}
+                  </p>
                 </div>
               </div>
             </div>
@@ -102,10 +75,7 @@ export default function About() {
             <div className="mb-6 lg:mb-0">
               <div className="bg-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                  <img
-                    src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-                    className="w-full rounded-t-lg"
-                  />
+                  <img src="/2.jpg" className="w-full rounded-t-lg" />
                   <a href="#!">
                     <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                   </a>
@@ -122,8 +92,11 @@ export default function About() {
                   </svg>
                 </div>
                 <div className="p-6">
-                  <h5 className="text-lg font-bold mb-4">Darren Randolph</h5>
-                  <p className="text-gray-500 mb-4">Marketing expert</p>
+                  <h5 className="text-lg font-bold mb-4">Виталий Шушкевич</h5>
+                  <p className="text-gray-500 mb-4">
+                    Автор и исполнитель песен, лидер служения прославления
+                    церкви «Новое Поколение» г. Барановичи{' '}
+                  </p>
                 </div>
               </div>
             </div>
@@ -131,10 +104,7 @@ export default function About() {
             <div className="">
               <div className="bg-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                  <img
-                    src="https://mdbootstrap.com/img/new/avatars/15.jpg"
-                    className="w-full rounded-t-lg"
-                  />
+                  <img src="/3.jpg" className="w-full rounded-t-lg" />
                   <a href="#!">
                     <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                   </a>
@@ -151,14 +121,76 @@ export default function About() {
                   </svg>
                 </div>
                 <div className="p-6">
-                  <h5 className="text-lg font-bold mb-4">Ayat Black</h5>
-                  <p className="text-gray-500 mb-4">Web designer</p>
+                  <h5 className="text-lg font-bold mb-4">Сергей Кобрин</h5>
+                  <p className="text-gray-500 mb-4">
+                    Звукорежиссёр, педагог, автор и исполнитель песен,
+                    основатель группы «Деяния», руководитель музыкальных
+                    проектов церкви{' '}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="mb-6 lg:mb-0">
+              <div className="bg-white block rounded-lg shadow-lg">
+                <div className="relative overflow-hidden bg-no-repeat bg-cover">
+                  <img src="/4.jpg" className="w-full rounded-t-lg" />
+                  <a href="#!">
+                    <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
+                  </a>
+                  <svg
+                    className="absolute"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1440 320"
+                    style={{ left: 0, bottom: 0 }}
+                  >
+                    <path
+                      fill="#fff"
+                      d="M0,96L48,128C96,160,192,224,288,240C384,256,480,224,576,213.3C672,203,768,213,864,202.7C960,192,1056,160,1152,128C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="p-6">
+                  <h5 className="text-lg font-bold mb-4">Наталья Байкс</h5>
+                  <p className="text-gray-500 mb-4">
+                    Педагог по вокалу и сценическому мастерству, автор и
+                    исполнитель песен, лидер прославления церкви «Новое
+                    Поколение» г. Юрмала, Латвия.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="mb-6 lg:mb-0">
+              <div className="bg-white block rounded-lg shadow-lg">
+                <div className="relative overflow-hidden bg-no-repeat bg-cover">
+                  <img src="/5.jpg" className="w-full rounded-t-lg" />
+                  <a href="#!">
+                    <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
+                  </a>
+                  <svg
+                    className="absolute"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1440 320"
+                    style={{ left: 0, bottom: 0 }}
+                  >
+                    <path
+                      fill="#fff"
+                      d="M0,96L48,128C96,160,192,224,288,240C384,256,480,224,576,213.3C672,203,768,213,864,202.7C960,192,1056,160,1152,128C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="p-6">
+                  <h5 className="text-lg font-bold mb-4">Нормунд Пиесис</h5>
+                  <p className="text-gray-500 mb-4">
+                    Магистр музыки, педагог джазовой импровизации, руководитель
+                    ансамблей в ВУЗ, участник и солист Латвийского биг-бэнда,
+                    участник международных проектов
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section className="text-gray-600 body-font mb-32">
+        {/* <section className="text-gray-600 body-font mb-32">
           <div className="container px-5  mx-auto">
             <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
               <svg
@@ -188,7 +220,7 @@ export default function About() {
               <p className="text-gray-500">Senior Product Designer</p>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   )

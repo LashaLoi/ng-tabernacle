@@ -91,7 +91,7 @@ export default function About() {
             </PrimaryButton>
           </div>
         </div>
-        <div>
+        {/* <div>
           <section className="text-gray-700">
             <div className="container px-5 py-24 mx-auto">
               <div className="text-center mb-20">
@@ -177,7 +177,7 @@ export default function About() {
               </div>
             </div>
           </section>
-        </div>
+        </div> */}
       </section>
       <section className="text-gray-600 mb-20 body-font flex justify-center flex-col w-full items-center">
         <div className="w-full text-center">
@@ -195,7 +195,7 @@ export default function About() {
                   <div className="flex-shrink-0">
                     <img
                       className="w-8 h-8 rounded-full"
-                      src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
+                      src="/6.jpg"
                       alt="Neil image"
                     />
                   </div>
@@ -217,7 +217,7 @@ export default function About() {
                   <div className="flex-shrink-0">
                     <img
                       className="w-8 h-8 rounded-full"
-                      src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                      src="/7.jpg"
                       alt="Bonnie image"
                     />
                   </div>

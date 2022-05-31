@@ -204,7 +204,7 @@ export default function Home() {
           </p>
         </FadeIn>
         <FadeIn delay={0.7}>
-          <p className="mt-2 text-gray-400">25.07-30.07</p>
+          <p className="mt-2 text-gray-400">25.07 - 30.07</p>
         </FadeIn>
 
         <FadeIn delay={0.8}>

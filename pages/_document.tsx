@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="ru">
       <Head>
-        <title>Tabernacle</title>
+        <title>Skinia2022</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
