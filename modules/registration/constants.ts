@@ -71,6 +71,7 @@ export const questions = [
     label: `Владеете ли Вы игрой на музыкальном инструменте? (укажите инструмент)`,
     placeholder: 'Ваш инструмент',
     component: 'input',
+    optional: true,
   },
   {
     label: 'Являетесь ли Вы вокалистом?',
