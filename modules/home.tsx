@@ -203,13 +203,13 @@ export default function Home() {
         </FadeIn>
         <FadeIn delay={0.5}>
           <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl  md:mt-5 md:text-xl lg:mx-0">
-            Добро пожаловать на Скинию 2022! На данном сайте вы можете
-            разегестрироваться на конференцию, стать спонсором, а так же
-            ознакомиться с программой
+            Привет, поклонник Иисуса Христа! На этом сайте ты сможешь
+            зарегистрироваться на школу, ознакомиться с программой, стать
+            спонсором и оставить свой отзыв!
           </p>
         </FadeIn>
         <FadeIn delay={0.7}>
-          <p className="mt-2 text-gray-400">20.07 - 23.07</p>
+          <p className="mt-2 text-gray-400">25.07-30.07</p>
         </FadeIn>
 
         <FadeIn delay={0.8}>
@@ -222,7 +222,7 @@ export default function Home() {
 
             <div className="sm:block hidden mr-2 my-2">
               <Link href="/about" passHref>
-                <PrimaryButton>О конференции</PrimaryButton>
+                <PrimaryButton>О школе</PrimaryButton>
               </Link>
             </div>
 
@@ -239,10 +239,16 @@ export default function Home() {
             </div>
 
             <div className="sm:block hidden mr-2 my-2">
-              <Link href="/gallery" passHref>
-                <DefaultButton>Галерея</DefaultButton>
+              <Link href="/contacts" passHref>
+                <DefaultButton>Контакты</DefaultButton>
               </Link>
             </div>
+
+            {/*<div className="sm:block hidden mr-2 my-2">*/}
+            {/*  <Link href="/gallery" passHref>*/}
+            {/*    <DefaultButton>Галерея</DefaultButton>*/}
+            {/*  </Link>*/}
+            {/*</div>*/}
 
             {/*//*/}
 
@@ -255,7 +261,7 @@ export default function Home() {
 
             <Link href="/about">
               <a className="mb-4 sm:hidden block flex items-center">
-                <span className="mr-2 text-lg">О конференции</span>
+                <span className="mr-2 text-lg">О школе</span>
                 {arrow}
               </a>
             </Link>
@@ -274,12 +280,19 @@ export default function Home() {
               </a>
             </Link>
 
-            <Link href="/gallery" passHref>
+            <Link href="/contacts">
               <a className="mb-4 sm:hidden block flex items-center">
-                <span className="mr-2 text-lg">Галерея</span>
+                <span className="mr-2 text-lg">Контакты</span>
                 {arrow}
               </a>
             </Link>
+
+            {/*<Link href="/gallery" passHref>*/}
+            {/*  <a className="mb-4 sm:hidden block flex items-center">*/}
+            {/*    <span className="mr-2 text-lg">Галерея</span>*/}
+            {/*    {arrow}*/}
+            {/*  </a>*/}
+            {/*</Link>*/}
           </div>
         </FadeIn>
 

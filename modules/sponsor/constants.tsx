@@ -1,7 +1,7 @@
 export const questions = [
   {
-    label: 'ФИО',
-    placeholder: 'Лой Алексей Павлович',
+    label: 'Полоное имя',
+    placeholder: 'Лой Алексей',
     component: 'input',
   },
   {

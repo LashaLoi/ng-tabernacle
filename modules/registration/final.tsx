@@ -6,6 +6,7 @@ import {
   LinkButton,
   PrimaryButton,
 } from '../../components/buttons'
+import { telegramIcon } from '../home'
 
 interface FinalProps {
   handleReset: () => void
@@ -22,15 +23,22 @@ export default function Final({ handleReset, price }: FinalProps) {
       transition={{ duration: 0.2, type: 'tween' }}
       className="relative lg:max-w-3xl md:max-w-2xl sm:p-16 p-8 mx-auto flex flex-col justify-center"
     >
-      <h1 className="tracking-tight font-extrabold sm:text-3xl text-2xl">
-        <span className="block xl:inline">Вы зарегистрированы на</span>{' '}
+      <p className="tracking-tight font-bold text-gray-600 sm:text-3xl text-2xl sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0 mb-2">
+        Поздравляем вас с успешной регистрацией на школу поклонения{' '}
         <span className="block text-indigo-600 xl:inline main-title">
-          Скиния 2022
+          СКИНИЯ 2022!
         </span>
-      </h1>
-      <p className="text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0">
-        Поздравляем вас с успешной регистрацией на Скинию 2022! Предлагаем вам
-        ознакомиться с программой или зарегистрировать вашего друга.
+      </p>
+      <p className="text-gray-400 flex mb-4 sm:flex-row flex-col">
+        <span className="mr-2">Будь в курсе всех новостей о школе</span>
+        <a
+          href="https://t.me/skiniaby"
+          target="_blank"
+          rel="noreferrer"
+          className="cursor-pointer flex"
+        >
+          {telegramIcon} <span className="ml-2">https://t.me/skiniaby</span>
+        </a>
       </p>
       <div className="mt-2 text-lg">
         <p>
