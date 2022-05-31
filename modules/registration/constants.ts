@@ -98,6 +98,7 @@ export const questions = [
     component: 'select',
     options: ['M', 'S', 'L', 'Нет'],
     price: true,
+    value: 'Нет',
   },
   {
     label: 'Приобрести шоппер с логотипом - 20 BYN',
@@ -105,5 +106,6 @@ export const questions = [
     component: 'select',
     options: ['Да', 'Нет'],
     price: true,
+    value: 'Нет',
   },
 ]

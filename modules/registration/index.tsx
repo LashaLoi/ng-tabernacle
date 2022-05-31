@@ -26,7 +26,7 @@ export type State = {
 
 export default function Registration() {
   const state = useRef<State>({})
-  const [price, setPrice] = useLocalStorage('price', 120)
+  const [price, setPrice] = useLocalStorage('priced', 120)
   const [showNotification, setShowNotification] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [show, setShow] = useState(true)
@@ -68,7 +68,9 @@ export default function Registration() {
       return
     }
 
-    if (currentQuestion.price) {
+    console.log(currentQuestion.value, value)
+
+    if (currentQuestion.price && currentQuestion.value !== value) {
       setPrice(price + 20)
     }
 
@@ -102,7 +104,7 @@ export default function Registration() {
 
     setValue('')
     setStep(0)
-    setPrice(60)
+    setPrice(120)
 
     setIsFinished(Finish.No)
   }, [])

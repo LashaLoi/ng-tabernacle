@@ -41,9 +41,9 @@ export default function Final({ handleReset, price }: FinalProps) {
         </a>
       </p>
       <div className="mt-2 text-lg">
-        <p>
+        {/* <p>
           Стоимость пакета: <span className="text-gray-500">{price} BYN</span>
-        </p>
+        </p> */}
       </div>
 
       <div className="flex flex-wrap sm:flex-row flex-col mt-6 mb-20">
