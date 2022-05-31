@@ -26,7 +26,7 @@ export type State = {
 
 export default function Registration() {
   const state = useRef<State>({})
-  const [price, setPrice] = useLocalStorage('priced', 120)
+  const [price, setPrice] = useLocalStorage('prices', 120)
   const [showNotification, setShowNotification] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [show, setShow] = useState(true)
