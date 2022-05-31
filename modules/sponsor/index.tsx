@@ -113,6 +113,7 @@ export default function Sponsor() {
                 </div>
 
                 <Steps
+                  optional={false}
                   questionsLength={questions.length - 1}
                   handleIncrement={handleIncrement}
                   handleDecrement={handleDecrement}
