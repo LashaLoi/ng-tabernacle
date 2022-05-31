@@ -197,10 +197,12 @@ export default function Home() {
           </h1>
         </FadeIn>
         <FadeIn delay={0.5}>
-          <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl  md:mt-5 md:text-xl lg:mx-0">
+          <p className="mt-3 mb-2 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl  md:mt-5 md:text-xl lg:mx-0">
             Привет, поклонник Иисуса Христа! На этом сайте ты сможешь
-            зарегистрироваться на школу, ознакомиться с программой, стать
-            спонсором и оставить свой отзыв!
+            зарегистрироваться на школу, стать спонсором и оставить свой отзыв!
+          </p>
+          <p className="text-gray-400">
+            В ближайшие дни появится программа и галерея
           </p>
         </FadeIn>
         <FadeIn delay={0.7}>
@@ -227,11 +229,11 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="sm:block hidden mr-2 my-2">
+            {/* <div className="sm:block hidden mr-2 my-2">
               <Link href="/program" passHref>
                 <DefaultButton>Программа</DefaultButton>
               </Link>
-            </div>
+            </div> */}
 
             <div className="sm:block hidden mr-2 my-2">
               <Link href="/contacts" passHref>
@@ -268,12 +270,12 @@ export default function Home() {
               </a>
             </Link>
 
-            <Link href="/program">
+            {/* <Link href="/program">
               <a className="mb-4 sm:hidden block flex items-center">
                 <span className="mr-2 text-lg">Программа</span>
                 {arrow}
               </a>
-            </Link>
+            </Link> */}
 
             <Link href="/contacts">
               <a className="mb-4 sm:hidden block flex items-center">
