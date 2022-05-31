@@ -188,7 +188,7 @@ export default function About() {
           <div className="flow-root">
             <ul
               role="list"
-              className="divide-y divide-gray-200 min-w-[400px] sm:p-0 p-8"
+              className="divide-y divide-gray-200 min-w-[400px] sm:p-0 p-12"
             >
               <li className="py-3 sm:py-4 ">
                 <div className="flex items-center space-x-4">
@@ -201,14 +201,14 @@ export default function About() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-900 truncate ">
-                      Эстэра Вороненко
+                      Эстэра
                     </p>
                     <p className="text-sm text-gray-500 truncate ">
-                      tg: email@windster.com
+                      tg: @esthervoronenko
                     </p>
                   </div>
                   <div className="inline-flex items-center text-base font-semibold text-gray-900 ">
-                    +375 33 123 45 67
+                    +375292265835
                   </div>
                 </div>
               </li>
@@ -217,20 +217,20 @@ export default function About() {
                   <div className="flex-shrink-0">
                     <img
                       className="w-8 h-8 rounded-full"
-                      src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                      src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
                       alt="Bonnie image"
                     />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-900 truncate ">
-                      Анна Захаренко
+                      Анна
                     </p>
                     <p className="text-sm text-gray-500 truncate ">
-                      tg: email@windster.com
+                      tg: @stenova
                     </p>
                   </div>
                   <div className="inline-flex items-center text-base font-semibold text-gray-900 ">
-                    +375 33 123 45 67
+                    +375292061132
                   </div>
                 </div>
               </li>
