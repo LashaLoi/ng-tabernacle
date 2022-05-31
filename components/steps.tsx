@@ -20,7 +20,7 @@ export default function Steps({
   optional,
 }: StepsProps) {
   return (
-    <div className="mt-4 flex">
+    <div className="mt-4 mb-[160px] flex">
       <div className="flex space-x-2 justify-center">
         <PrimaryButton
           className="mr-2"
