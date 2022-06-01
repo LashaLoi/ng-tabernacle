@@ -212,9 +212,9 @@ export default function Header({ show = true }: { show?: boolean }) {
         <FadeIn>
           <div
             onClick={handleOpen}
-            className="flex  justify-center flex-col items-center fixed text-center w-full bottom-2 md:hidden block z-30"
+            className="flex rounded-t-3xl bg-gray-100 justify-center flex-col items-center fixed text-center w-full bottom-0 md:hidden z-30"
           >
-            <div className="bg-white flex flex-col justify-center items-center rounded-lg px-2 py-1">
+            <div className="flex flex-col justify-center items-center py-1">
               {arrowUp}
               меню
             </div>

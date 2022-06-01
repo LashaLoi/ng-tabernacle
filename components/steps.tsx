@@ -20,20 +20,23 @@ export default function Steps({
   optional,
 }: StepsProps) {
   return (
-    <div className="mt-4 mb-[160px] flex">
-      <div className="flex space-x-2 justify-center">
+    <div className="mt-4 mb-[160px] flex sm:flex-row flex-col">
+      <FadeIn>
         <PrimaryButton
-          className="mr-2"
+          className="mr-2 sm:mt-0 mt-2"
           disabled={!value}
           onClick={handleIncrement}
         >
           {step === questionsLength ? 'Завершить' : 'Далее'}
         </PrimaryButton>
-      </div>
+      </FadeIn>
 
       {optional && (
         <FadeIn>
-          <DefaultButton className="mr-2" onClick={handleIncrement}>
+          <DefaultButton
+            className="mr-2 sm:mt-0 mt-2"
+            onClick={handleIncrement}
+          >
             Пропустить
           </DefaultButton>
         </FadeIn>
@@ -41,7 +44,9 @@ export default function Steps({
 
       {step > 0 && (
         <FadeIn>
-          <DefaultButton onClick={handleDecrement}>Назад</DefaultButton>
+          <DefaultButton className="sm:mt-0 mt-2" onClick={handleDecrement}>
+            Назад
+          </DefaultButton>
         </FadeIn>
       )}
     </div>
