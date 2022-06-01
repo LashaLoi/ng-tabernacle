@@ -164,7 +164,7 @@ export default function Program() {
                 18:00 - ужин + подготовка к вечеру хвалы
               </p>
               <p className="leading-tight  mb-2">
-                19:30 - <b>шоу талантов "Твое время"</b>
+                19:30 - <b>шоу талантов &quot;Твое время&quot;</b>
               </p>
             </div>
           </div>
