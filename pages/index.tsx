@@ -18,7 +18,7 @@ export const defaultVariants = {
 export const arrowDown = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-7 w-7"
+    className="h-5 w-5"
     viewBox="0 0 20 20"
     fill="currentColor"
   >

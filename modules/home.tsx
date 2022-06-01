@@ -190,19 +190,19 @@ export default function Home() {
     <div className="h-screen w-full flex flex-col justify-center items-center p-2 relative">
       <div className="p-12">
         <FadeIn delay={0.3}>
-          <h1 className="tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl text-4xl">
+          <h1 className="tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl text-3xl">
             <span className="block text-indigo-600 xl:inline main-title">
               Скиния 2022
             </span>
           </h1>
         </FadeIn>
         <FadeIn delay={0.5}>
-          <p className="mt-3 mb-2 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl  md:mt-5 md:text-xl lg:mx-0">
+          <p className="mt-3 mb-2 sm:text-base text-sm text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl  md:mt-5 md:text-xl lg:mx-0">
             Привет, поклонник Иисуса Христа! На этом сайте ты сможешь
             зарегистрироваться на школу, стать спонсором и оставить свой отзыв!
           </p>
-          <p className="text-gray-400">
-            В ближайшие дни появится программа и галерея
+          <p className="text-gray-400 sm:text-base text-sm">
+            В ближайшие дни появится галерея
           </p>
         </FadeIn>
         <FadeIn delay={0.7}>
@@ -229,11 +229,11 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* <div className="sm:block hidden mr-2 my-2">
+            <div className="sm:block hidden mr-2 my-2">
               <Link href="/program" passHref>
                 <DefaultButton>Программа</DefaultButton>
               </Link>
-            </div> */}
+            </div>
 
             <div className="sm:block hidden mr-2 my-2">
               <Link href="/contacts" passHref>
@@ -270,12 +270,12 @@ export default function Home() {
               </a>
             </Link>
 
-            {/* <Link href="/program">
+            <Link href="/program">
               <a className="mb-4 sm:hidden block flex items-center">
                 <span className="mr-2 text-lg">Программа</span>
                 {arrow}
               </a>
-            </Link> */}
+            </Link>
 
             <Link href="/contacts">
               <a className="mb-4 sm:hidden block flex items-center">

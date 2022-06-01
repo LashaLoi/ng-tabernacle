@@ -165,7 +165,7 @@ const routes = [
     route: '/sponsor',
     icon: moneyIcon,
   },
-  // { title: 'Программа', route: '/program', icon: listIcon },
+  { title: 'Программа', route: '/program', icon: listIcon },
   { title: 'Контакты', route: '/contacts', icon: contactIcon },
   // { title: 'Галерея', route: '/gallery', icon: galleryIcon },
 ]

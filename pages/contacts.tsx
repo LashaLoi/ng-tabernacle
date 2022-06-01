@@ -203,9 +203,15 @@ export default function About() {
                     <p className="text-sm font-medium text-gray-900 truncate ">
                       Эстэра
                     </p>
-                    <p className="text-sm text-gray-500 truncate ">
-                      tg: @esthervoronenko
-                    </p>
+                    <a
+                      href="https://t.me/esthervoronenko"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <p className="text-sm text-gray-500 truncate ">
+                        tg: @esthervoronenko
+                      </p>
+                    </a>
                   </div>
                   <div className="inline-flex items-center text-base font-semibold text-gray-900 ">
                     +375292265835
@@ -225,9 +231,15 @@ export default function About() {
                     <p className="text-sm font-medium text-gray-900 truncate ">
                       Анна
                     </p>
-                    <p className="text-sm text-gray-500 truncate ">
-                      tg: @stenova
-                    </p>
+                    <a
+                      href="https://t.me/stenova"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <p className="text-sm text-gray-500 truncate">
+                        tg: @stenova
+                      </p>
+                    </a>
                   </div>
                   <div className="inline-flex items-center text-base font-semibold text-gray-900 ">
                     +375292061132

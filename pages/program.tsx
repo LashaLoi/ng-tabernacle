@@ -1,5 +1,4 @@
 import Header from '../components/header'
-import { FadeIn } from '../components/fade-in'
 import { motion } from 'framer-motion'
 import { defaultVariants } from './index'
 
@@ -12,189 +11,216 @@ export default function Program() {
       animate="enter"
       exit="exit"
       transition={{ duration: 0.3 }}
-      className="absolute sm:overflow-x-visible overflow-x-hidden"
+      className="absolute sm:overflow-x-visible overflow-x-hidden w-full"
     >
       <Header />
 
-      <div className="sm:p-8 p-0 ">
-        <div className="w-full mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
-          <div className="flex flex-col w-full sticky md:top-[320px] lg:w-1/3 mt-2 md:mt-12 sm:px-20 px-10">
-            <h1 className="tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl text-4xl">
-              Программа
-            </h1>
-            <h1 className="mb-4 tracking-tight font-extrabold sm:text-3xl md:text-4xl text-4xl">
-              <span className="block text-indigo-600 xl:inline main-title">
-                Скиния 2022
-              </span>
-            </h1>
-            <p className="text-gray-600 mb-2">
-              Господу Богу твоему поклоняйся и Ему одному служи
-            </p>
-            <p className="text-gray-400">Матфея 4:10</p>
-          </div>
-          <div className="ml-0 md:ml-12 lg:w-2/3 sticky">
-            <div className="container mx-auto w-full h-full">
-              <div className="relative wrap overflow-hidden p-10 h-full">
-                <div
-                  className="absolute w-[4px] bg-gradient-to-b from-[#c850c0] to-[#ffcc70] h-full sm:block hidden"
-                  style={{
-                    right: '50%',
-                    borderRadius: '10%',
-                  }}
-                ></div>
-                <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-                  <div className="order-1 sm:w-5/12"></div>
-                  <div className="order-1 sm:w-5/12 sm:px-1 py-4 sm:text-right">
-                    <p className="mb-3 text-[#c850c0]">20.07 (вторник)</p>
-                    <h4 className="mb-3 text-stone-800 font-bold text-lg md:text-2xl">
-                      Регистрация
-                    </h4>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      <span>Регистрация</span> <span className="mx-1">-</span>{' '}
-                      <span>16:00</span>
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 flex justify-end flex-row-reverse sm:block">
-                      <span>
-                        Открытие: совместный ужин, общение, «открытая пультовая»
-                        (совместная настройка аппаратуры), молитва и поклонение
-                      </span>
-                      <span className="mx-1">-</span> <span>17:00</span>
-                    </p>
-                  </div>
-                </div>
-                <div className="mb-8 flex justify-between sm:flex-row flex-row-reverse items-center w-full right-timeline">
-                  <div className="order-1 sm:w-5/12"></div>
-                  <div className="order-1 sm:w-5/12 sm:px-1 py-4 text-left">
-                    <p className="mb-3 text-[#c850c0]">21.07 (среда)</p>
-                    <h4 className="mb-3 text-stone-800  font-bold text-lg md:text-2xl">
-                      День 1
-                    </h4>
-
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      09:00 - Молитва и Поклонение
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      10:00 - Перерыв
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      10:10 - Семинар - ?
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      11:00 - Перерыв
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      11:10 - Семинар
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      12:00 - Обед
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      14:00 - Семинар
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      15:30 - Перерыв
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      16:00 - Обратная связь
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      17:00 - Ужин
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      18:30 - Вечер Хвалы и Поклонения
-                    </p>
-                  </div>
-                </div>
-                <div className="mb-8 flex justify-between sm:flex-row-reverse flex-row items-center w-full left-timeline">
-                  <div className="order-1 sm:w-5/12 sm:block hidden"></div>
-                  <div className="order-1 sm:w-5/12 px-1 py-4 sm:text-right text-left">
-                    <p className="mb-3 text-[#c850c0]">22.07 (четверг)</p>
-                    <h4 className="mb-3 text-stone-800 font-bold text-lg md:text-2xl">
-                      День 2
-                    </h4>
-
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      Молитва и Поклонение <span className="mx-1">-</span> 09:00
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      Перерыв <span className="mx-1">-</span> 10:00
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      Семинар <span className="mx-1">-</span> 10:10
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      Перерыв <span className="mx-1">-</span> 11:00
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      ? <span className="mx-1">-</span> 11:10
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      Обед <span className="mx-1">-</span> 12:00
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      Мастер-класс (Аранжировка) <span className="mx-1">-</span>{' '}
-                      14:00
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      Перерыв <span className="mx-1">-</span> 15:30
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      Танцевальный мастер-класс <span className="mx-1">-</span>{' '}
-                      16:00
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      Ужин <span className="mx-1">-</span> 17:00
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      Вечер Хвалы и Поклонения <span className="mx-1">-</span>{' '}
-                      18:30
-                    </p>
-                  </div>
-                </div>
-                <div className="mb-8 flex justify-between sm:flex-row flex-row-reverse items-center w-full right-timeline">
-                  <div className="order-1 sm:w-5/12"></div>
-                  <div className="order-1 sm:w-5/12 sm:px-1 py-4 text-left">
-                    <p className="mb-3 text-[#c850c0]">23.07 (пятница)</p>
-                    <h4 className="mb-3 text-stone-800  font-bold text-lg md:text-2xl">
-                      День 3
-                    </h4>
-
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      09:00 - Молитва и Поклонение
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      10:00 - Перерыв
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      10:10 - Семинар
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      11:00 - Перерыв
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      11:10 - Семинар
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      12:00 - Обед
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      14:00 - Творческая лаборатория
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2 flex justify-end flex-row-reverse sm:block">
-                      15:30 - Перерыв
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      16:00 - Вопросы и ответы
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      17:00 - Ужин
-                    </p>
-                    <p className="text-sm text-black leading-snug text-opacity-100 mb-2">
-                      18:30 - Вечер Хвалы и Поклонения, Закрытие
-                    </p>
-                  </div>
-                </div>
+      <div className="flex flex-col w-full text-center mt-2 md:mt-12 sm:px-20 px-10 mb-20">
+        <h1 className="tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl text-4xl">
+          Программа
+        </h1>
+        <h1 className="mb-4 tracking-tight font-extrabold sm:text-3xl md:text-4xl text-4xl">
+          <span className="block xl:inline main-title">Скиния 2022</span>
+        </h1>
+        <p className="text-gray-600 mb-2">
+          Господу Богу твоему поклоняйся и Ему одному служи
+        </p>
+        <p className="text-gray-400">Матфея 4:10</p>
+      </div>
+      <div className="container w-full mx-auto flex justify-center items-center mb-20">
+        <div className="flex flex-col md:grid grid-cols-9 mx-auto p-2 text-blue-50">
+          <div className="flex flex-row-reverse md:contents">
+            <div className="sm:bg-gray-100 bg-none text-black col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto sm:shadow-md shadow-none max-w-[400px]">
+              <h3 className="font-semibold text-lg mb-4 text-blue-900">
+                25.07 - понедельник
+              </h3>
+              <p className="leading-tight mb-2">
+                16:00 - <b>регистрация</b>
+              </p>
+              <p className="leading-tight  mb-2">
+                18:00 - <b>ОТКРЫТИЕ ШКОЛЫ</b>
+              </p>
+              <p className="leading-tight  mb-2">
+                19:30 - совместный ужин, молитва, общение, информация
+              </p>
+            </div>
+            <div className="col-start-5 col-end-6 md:mx-auto relative mr-10 hidden sm:block">
+              <div className="h-full w-6 flex items-center justify-center sm">
+                <div className="h-full w-1 bg-blue-900 pointer-events-none"></div>
               </div>
+              <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-blue-900 shadow"></div>
+            </div>
+          </div>
+
+          <div className="flex md:contents">
+            <div className="col-start-5 col-end-6 mr-10 md:mx-auto relative hidden sm:block">
+              <div className="h-full w-6 flex items-center justify-center">
+                <div className="h-full w-1 bg-blue-900 pointer-events-none"></div>
+              </div>
+              <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-blue-900 shadow"></div>
+            </div>
+            <div className="sm:bg-gray-100 bg-none text-black col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto sm:shadow-md shadow-none max-w-[400px]">
+              <h3 className="font-semibold text-lg mb-4 text-blue-900">
+                26.07 - вторник
+              </h3>
+              <p className="leading-tight  mb-2 ">
+                10:00 - <b>молитва и поклонение</b>
+              </p>
+              <p className="leading-tight  mb-2">11:00 - перерыв</p>
+              <p className="leading-tight  mb-2">
+                11:15 - <b>семинар Леонид Воронеко</b>
+              </p>
+              <p className="leading-tight  mb-2">12:15 - перерыв</p>
+              <p className="leading-tight  mb-2">
+                12:30 - <b>семинар Алексей Ледяева</b>
+              </p>
+              <p className="leading-tight  mb-2">13:30 - обед</p>
+              <p className="leading-tight  mb-2">
+                14:30 - <b>мастер-класс Сергей Кобрин</b>
+              </p>
+              <p className="leading-tight  mb-2">16:00 - перерыв</p>
+              <p className="leading-tight  mb-2">
+                16:30 - <b>мастер-класс Александр Виславский</b>
+              </p>
+              <p className="leading-tight  mb-2">
+                18:00 - ужин + подготовка к вечеру хвалы
+              </p>
+              <p className="leading-tight  mb-2">
+                19:30 - <b>вечер хвалы и поклонения</b>
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-row-reverse md:contents">
+            <div className="sm:bg-gray-100 bg-none text-black col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto sm:shadow-md shadow-none max-w-[400px]">
+              <h3 className="font-semibold text-lg mb-3 text-blue-900">
+                27.07 - среда
+              </h3>
+              <p className="leading-tight  mb-2">
+                10:00 - <b>молитва и поклонение</b>
+              </p>
+              <p className="leading-tight  mb-2">11:00 - перерыв</p>
+              <p className="leading-tight  mb-2">
+                11:15 - <b>семинар Алексей Ледяев</b>
+              </p>
+              <p className="leading-tight  mb-2">12:15 - перерыв</p>
+              <p className="leading-tight  mb-2">
+                12:30 - <b>семинар Леонид Вороненко</b>
+              </p>
+              <p className="leading-tight  mb-2">13:30 - обед</p>
+              <p className="leading-tight  mb-2">
+                14:30 - <b>мастер-класс Анастасия Шепелевич</b>
+              </p>
+              <p className="leading-tight  mb-2">16:00 - перерыв</p>
+              <p className="leading-tight  mb-2">
+                16:30 - <b>мастер-класс Дарья Янчина</b>
+              </p>
+              <p className="leading-tight  mb-2">
+                18:00 - ужин + подготовка к вечеру хвалы
+              </p>
+              <p className="leading-tight  mb-2">
+                19:30 - <b>Израильский вечер</b>
+              </p>
+            </div>
+            <div className="col-start-5 col-end-6 md:mx-auto relative mr-10 hidden sm:block">
+              <div className="h-full w-6 flex items-center justify-center">
+                <div className="h-full w-1 bg-blue-800 pointer-events-none"></div>
+              </div>
+              <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-blue-900 shadow"></div>
+            </div>
+          </div>
+
+          <div className="flex md:contents">
+            <div className="col-start-5 col-end-6 mr-10 md:mx-auto relative hidden sm:block">
+              <div className="h-full w-6 flex items-center justify-center">
+                <div className="h-full w-1 bg-blue-900 pointer-events-none"></div>
+              </div>
+              <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-blue-900 shadow"></div>
+            </div>
+            <div className="sm:bg-gray-100 bg-none text-black col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto sm:shadow-md shadow-none max-w-[400px]">
+              <h3 className="font-semibold text-lg mb-4 text-blue-900">
+                28.07 - четверг
+              </h3>
+              <p className="leading-tight  mb-2">
+                10:00 - <b>молитва и поклонение</b>
+              </p>
+              <p className="leading-tight  mb-2">11:00 - перерыв</p>
+              <p className="leading-tight  mb-2">
+                11:15 - <b>семинар Команда LV</b>
+              </p>
+              <p className="leading-tight  mb-2">12:15 - перерыв</p>
+              <p className="leading-tight  mb-2">
+                12:30 - <b>семинар Команда LV</b>
+              </p>
+              <p className="leading-tight  mb-2">13:30 - обед</p>
+              <p className="leading-tight  mb-2">
+                14:30 - <b>творческая лаборатория Команда LV</b>
+              </p>
+              <p className="leading-tight  mb-2">16:00 - перерыв</p>
+              <p className="leading-tight  mb-2">
+                16:30 - <b>творческая лаборатория Команда LV</b>
+              </p>
+              <p className="leading-tight  mb-2">
+                18:00 - ужин + подготовка к вечеру хвалы
+              </p>
+              <p className="leading-tight  mb-2">
+                19:30 - <b>шоу талантов "Твое время"</b>
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-row-reverse md:contents">
+            <div className="sm:bg-gray-100 bg-none text-black col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto sm:shadow-md shadow-none max-w-[400px]">
+              <h3 className="font-semibold text-lg mb-3 text-blue-900">
+                29.07 - пятница
+              </h3>
+              <p className="leading-tight  mb-2">
+                10:00 - <b>молитва и поклонение</b>
+              </p>
+              <p className="leading-tight  mb-2">12:15 - перерыв</p>
+              <p className="leading-tight  mb-2">
+                12:30 - <b>семинар</b>
+              </p>
+              <p className="leading-tight  mb-2">13:30 - обед</p>
+              <p className="leading-tight  mb-2">
+                14:30 - <b>мастер-класс Сергей Кобрин, Стас Янчин</b>
+              </p>
+              <p className="leading-tight  mb-2">16:00 - перерыв</p>
+              <p className="leading-tight  mb-2">
+                16:30 - <b>ответы на вопросы</b>
+              </p>
+              <p className="leading-tight  mb-2">
+                18:00 - ужин + подготовка к вечеру хвалы
+              </p>
+              <p className="leading-tight  mb-2">
+                19:30 -{' '}
+                <b>
+                  Заключительный вечер хвалы и поклонения, молитва за исцеление
+                </b>
+              </p>
+            </div>
+            <div className="col-start-5 col-end-6 md:mx-auto relative mr-10 hidden sm:block">
+              <div className="h-full w-6 flex items-center justify-center">
+                <div className="h-full w-1 bg-blue-800 pointer-events-none"></div>
+              </div>
+              <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-blue-900 shadow"></div>
+            </div>
+          </div>
+
+          <div className="flex md:contents">
+            <div className="col-start-5 col-end-6 mr-10 md:mx-auto relative hidden sm:block">
+              <div className="h-full w-6 flex items-center justify-center">
+                <div className="h-full w-1 bg-blue-900 pointer-events-none"></div>
+              </div>
+              <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-blue-900 shadow"></div>
+            </div>
+            <div className="sm:bg-gray-100 bg-none text-black col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto sm:shadow-md shadow-none max-w-[400px]">
+              <h3 className="font-semibold text-lg mb-4 text-blue-900">
+                30.07 - суббота
+              </h3>
+              <p className="leading-tight  mb-2">
+                10:00 - <b>молитвенный завтрак, обратная связь, общение</b>
+              </p>
             </div>
           </div>
         </div>
