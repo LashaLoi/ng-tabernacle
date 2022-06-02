@@ -125,7 +125,7 @@ function Gallery() {
   }, [])
 
   return (
-    <PageWrapper key="gallery">
+    <PageWrapper itemKey="gallery">
       <div className="gallery relative h-screen">
         <Head>
           <title>Галерея</title>

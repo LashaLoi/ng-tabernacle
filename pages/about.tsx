@@ -3,7 +3,7 @@ import PageWrapper from '../components/page-wrapper'
 
 export default function About() {
   return (
-    <PageWrapper key="about">
+    <PageWrapper itemKey="about">
       <div className="relative w-full overflow-x-hidden">
         <Header />
 

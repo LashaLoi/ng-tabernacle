@@ -6,7 +6,7 @@ import PageWrapper from '../components/page-wrapper'
 
 export default function Registration() {
   return (
-    <PageWrapper key="registration">
+    <PageWrapper itemKey="registration">
       <Head>
         <title>Регистрация</title>
       </Head>

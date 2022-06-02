@@ -6,7 +6,7 @@ import PageWrapper from '../components/page-wrapper'
 
 export default function Sponsor() {
   return (
-    <PageWrapper key="sponsor">
+    <PageWrapper itemKey="sponsor">
       <Head>
         <title>Стать спонсором</title>
       </Head>

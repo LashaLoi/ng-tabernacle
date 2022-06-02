@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { Modal } from '../../components/modal'
-
 import { Finish, useLocalStorage, useLS, useStep, useValue } from './hooks'
 
 import Header from '../../components/header'
@@ -13,9 +11,9 @@ import Final from './final'
 import { createAnimation, register } from './utils'
 import { questions } from './constants'
 import { Progress } from '../../components/progress'
-import { PrimaryButton } from '../../components/buttons'
 import { FadeIn } from '../../components/fade-in'
 import { RegistrationModal } from './modal'
+import { useTimeoutShow } from '../../hooks/useTimeoutShow'
 
 export const quizAnimation = createAnimation(50)
 export const stepAnimation = createAnimation(10)
@@ -24,22 +22,14 @@ export type State = {
   [key in number]: { value: string; ignored?: boolean }
 }
 
+const defaultPrice = 120
+
 export default function Registration() {
   const state = useRef<State>({})
-  const [price, setPrice] = useLocalStorage('prices', 120)
-  const [showNotification, setShowNotification] = useState(false)
+
+  const [price, setPrice] = useLocalStorage('prices', defaultPrice)
+  const [showNotification, setShowNotification] = useTimeoutShow(4000)
   const [showModal, setShowModal] = useState(false)
-  const [show, setShow] = useState(true)
-
-  useEffect(() => {
-    let timeoutId: NodeJS.Timeout
-
-    if (showNotification) {
-      timeoutId = setTimeout(() => setShowNotification(false), 4000)
-    }
-
-    return () => clearTimeout(timeoutId)
-  }, [showNotification])
 
   const [step, incrementStep, decrementStep, setStep] = useStep()
   const currentQuestion = useMemo(() => questions[step], [step])
@@ -58,6 +48,7 @@ export default function Registration() {
 
     const nextQuestion = questions[step + 1]
 
+    // ignore logic
     if (nextQuestion?.depend && nextQuestion.value !== value) {
       state.current[step + 1] = { value: '', ignored: true }
 
@@ -68,10 +59,12 @@ export default function Registration() {
       return
     }
 
+    // price logic
     if (currentQuestion.price && currentQuestion.value !== value) {
       setPrice(price + 20)
     }
 
+    // last question logic
     if (!nextQuestion) {
       handleFinish()
 
@@ -86,6 +79,7 @@ export default function Registration() {
   const handleDecrement = useCallback(() => {
     let prevQuestion = state.current[step - 1]
 
+    // ignore logic
     if (prevQuestion.ignored) {
       prevQuestion = state.current[step - 2]
 
@@ -102,7 +96,7 @@ export default function Registration() {
 
     setValue('')
     setStep(0)
-    setPrice(120)
+    setPrice(defaultPrice)
 
     setIsFinished(Finish.No)
   }, [])
@@ -127,7 +121,7 @@ export default function Registration() {
 
   return (
     <div className="h-screen relative overflow-x-hidden">
-      <Header show={show} />
+      <Header />
 
       {!loading && (
         <AnimatePresence initial={false} exitBeforeEnter={true}>
@@ -240,7 +234,7 @@ export default function Registration() {
       <AnimatePresence initial={false}>
         {showNotification && (
           <motion.div
-            className="sm:block hidden bg-gray-100 flex justify-center items-center px-6 py-4 fixed right-4 bottom-4 shadow-lg rounded"
+            className="sm:flex hidden bg-gray-100 justify-center items-center px-6 py-4 fixed right-4 bottom-4 shadow-lg rounded"
             initial={{ opacity: 0, x: 100, scale: 0.3 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 100 }}

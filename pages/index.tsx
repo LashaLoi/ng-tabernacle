@@ -22,7 +22,7 @@ export default function Home() {
   }, [])
 
   return (
-    <PageWrapper key="index">
+    <PageWrapper itemKey="index">
       <Head>
         <title>Skinia2022</title>
       </Head>

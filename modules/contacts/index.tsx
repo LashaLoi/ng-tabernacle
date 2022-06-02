@@ -4,9 +4,11 @@ import Header from '../../components/header'
 
 import { ContactNotification } from './notification'
 
-import { useTimeoutShow } from '../../hooks/useTimeoutShow'
 import { MapSection } from './map-section'
-import { ContactSection } from './ contact-section'
+import { ContactSection } from './contact-section'
+import { ContactUsSection } from './contact-us-section'
+
+import { useTimeoutShow } from '../../hooks/useTimeoutShow'
 
 export default function ContactsModule() {
   const [showNotification, setShowNotification] = useTimeoutShow(4000)
@@ -20,6 +22,8 @@ export default function ContactsModule() {
       <Header />
 
       <MapSection onSubmit={handleSubmit} />
+
+      <ContactUsSection />
 
       <ContactSection />
 

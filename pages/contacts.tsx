@@ -6,7 +6,7 @@ import PageWrapper from '../components/page-wrapper'
 
 export default function About() {
   return (
-    <PageWrapper key="contacts">
+    <PageWrapper itemKey="contacts">
       <Head>
         <title>Контакты</title>
       </Head>

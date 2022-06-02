@@ -9,13 +9,13 @@ export const defaultVariants = {
 
 interface PageWrapperProps {
   children: React.ReactNode
-  key: string
+  itemKey: string
 }
 
-export default function PageWrapper({ key, children }: PageWrapperProps) {
+export default function PageWrapper({ itemKey, children }: PageWrapperProps) {
   return (
     <motion.div
-      key={key}
+      key={itemKey}
       variants={defaultVariants}
       initial="hidden"
       animate="enter"

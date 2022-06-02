@@ -5,7 +5,7 @@ import PageWrapper from '../components/page-wrapper'
 
 export default function Program() {
   return (
-    <PageWrapper key="program">
+    <PageWrapper itemKey="program">
       <Head>
         <title>Программа</title>
       </Head>

@@ -17,7 +17,7 @@ export function ContactNotification({ show }: ContactNotificationProps) {
             delay: 0.7,
           }}
         >
-          <p className="text-lg">Ваш вопрос отправлен!</p>
+          <p className="text-lg">Ваш запрос отправлен!</p>
         </motion.div>
       )}
     </AnimatePresence>
