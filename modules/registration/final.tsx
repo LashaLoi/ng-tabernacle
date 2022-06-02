@@ -40,11 +40,6 @@ export default function Final({ handleReset, price }: FinalProps) {
           {telegramIcon} <span className="ml-2">https://t.me/skiniaby</span>
         </a>
       </p>
-      <div className="mt-2 text-lg">
-        <p>
-          Стоимость пакета: <span className="text-gray-500">{price} BYN</span>
-        </p>
-      </div>
 
       <div className="flex flex-wrap sm:flex-row flex-col mt-6 mb-20">
         <div className="mr-2">

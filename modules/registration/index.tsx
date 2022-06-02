@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import Select from 'react-select'
-
 import { Modal } from '../../components/modal'
 
 import { Finish, useLocalStorage, useLS, useStep, useValue } from './hooks'
@@ -16,6 +14,7 @@ import { createAnimation, register } from './utils'
 import { questions } from './constants'
 import { Progress } from '../../components/progress'
 import { PrimaryButton } from '../../components/buttons'
+import { FadeIn } from '../../components/fade-in'
 
 export const quizAnimation = createAnimation(50)
 export const stepAnimation = createAnimation(10)
@@ -162,24 +161,47 @@ export default function Registration() {
                     </div>
                   )}
                   {currentQuestion.component === 'select' ? (
-                    <Select
-                      onFocus={() => setShow(false)}
-                      onBlur={() => setShow(true)}
-                      autoFocus
-                      defaultValue={value || undefined}
-                      placeholder={currentQuestion.placeholder}
-                      onChange={({ value }: any) => {
-                        !show && setShow(true)
-
-                        handleChange({ target: { value } })
-                      }}
-                      options={
-                        currentQuestion.options!.map((option) => ({
-                          value: option,
-                          label: option,
-                        })) as any
-                      }
-                    />
+                    <>
+                      {currentQuestion.options!.map((option) => (
+                        <label
+                          key={option}
+                          className="flex justify-start items-start  my-4"
+                        >
+                          <div className="bg-white border-2 rounded border-gray-400 w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-900">
+                            <input
+                              checked={value === option}
+                              type="checkbox"
+                              className="opacity-0 absolute"
+                              onChange={() =>
+                                handleChange({ target: { value: option } })
+                              }
+                            />
+                            <AnimatePresence exitBeforeEnter>
+                              {value === option && (
+                                <motion.div
+                                  key={option}
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  exit={{ opacity: 0 }}
+                                >
+                                  <FadeIn delay={0.1}>
+                                    <svg
+                                      className={`fill-current ${
+                                        value === option ? 'block' : 'hidden'
+                                      } w-4 h-4 text-blue-900 pointer-events-none`}
+                                      viewBox="0 0 20 20"
+                                    >
+                                      <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
+                                    </svg>
+                                  </FadeIn>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                          <div className="select-none">{option}</div>
+                        </label>
+                      ))}
+                    </>
                   ) : (
                     <Input
                       className="rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-900 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-900 focus:outline-none"
