@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import { useCallback } from 'react'
 import { LinkButton } from '../components/buttons'
 import Head from 'next/head'
+import PageWrapper from '../components/page-wrapper'
 
 function Item({
   index,
@@ -124,26 +125,28 @@ function Gallery() {
   }, [])
 
   return (
-    <div className="gallery relative h-screen">
-      <Head>
-        <title>Галерея</title>
-      </Head>
-      <div className="sm:pb-0 pb-[60px] h-screen">
-        <Suspense
-          fallback={
-            <div className="w-full h-full justify-center items-center flex">
-              Загрузка галереи...
-            </div>
-          }
-        >
-          <App />
-        </Suspense>
+    <PageWrapper key="gallery">
+      <div className="gallery relative h-screen">
+        <Head>
+          <title>Галерея</title>
+        </Head>
+        <div className="sm:pb-0 pb-[60px] h-screen">
+          <Suspense
+            fallback={
+              <div className="w-full h-full justify-center items-center flex">
+                Загрузка галереи...
+              </div>
+            }
+          >
+            <App />
+          </Suspense>
 
-        <div className="absolute w-full flex justify-center mt-10 top-0">
-          <LinkButton onClick={handleBack}>Вернуться</LinkButton>
+          <div className="absolute w-full flex justify-center mt-10 top-0">
+            <LinkButton onClick={handleBack}>Вернуться</LinkButton>
+          </div>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   )
 }
 

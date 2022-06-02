@@ -11,7 +11,7 @@ import {
   telegramIcon,
   vkIcon,
   youtubeIcon,
-} from '../modules/home'
+} from '../components/icons'
 import { FadeIn } from './fade-in'
 import { useCallback, useState } from 'react'
 import { Modal } from './modal'

@@ -15,6 +15,7 @@ import { questions } from './constants'
 import { Progress } from '../../components/progress'
 import { PrimaryButton } from '../../components/buttons'
 import { FadeIn } from '../../components/fade-in'
+import { RegistrationModal } from './modal'
 
 export const quizAnimation = createAnimation(50)
 export const stepAnimation = createAnimation(10)
@@ -66,8 +67,6 @@ export default function Registration() {
 
       return
     }
-
-    console.log(currentQuestion.value, value)
 
     if (currentQuestion.price && currentQuestion.value !== value) {
       setPrice(price + 20)
@@ -254,36 +253,7 @@ export default function Registration() {
         )}
       </AnimatePresence>
 
-      <AnimatePresence initial={false}>
-        {showModal && (
-          <Modal onClose={handleModalClose}>
-            <div className="flex flex-col text-lg ">
-              <p className="font-extrabold mb-4 text-2xl text-center">
-                ВНИМАНИЕ!
-              </p>
-
-              <p className="mb-2">
-                Команда школы не предоставляет бесплатный ночлег, если вам нужна
-                помощь в поиске жилья в аренду, свяжитесь с нами +375 (29)
-                206-11-32 Анна
-              </p>
-              <p className="mb-2">
-                Приятный бонус для каждого участника - бесплатный обед!
-              </p>
-              <p className="mb-2">На месте будет работать платное кафе</p>
-              <p className="mb-4">
-                В этом году мы делаем открытый вечер хвалы в пятницу в 19:30,
-                остальные вечера только для участников школы!
-              </p>
-              <div className="text-center">
-                <PrimaryButton onClick={handleModalClose}>
-                  Понятно
-                </PrimaryButton>
-              </div>
-            </div>
-          </Modal>
-        )}
-      </AnimatePresence>
+      <RegistrationModal show={showModal} onClose={handleModalClose} />
     </div>
   )
 }

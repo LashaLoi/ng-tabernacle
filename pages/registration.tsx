@@ -1,19 +1,16 @@
-import RegistrationModule from '../modules/registration'
-import { motion } from 'framer-motion'
+import Head from 'next/head'
 
-import { defaultVariants } from './index'
+import RegistrationModule from '../modules/registration'
+
+import PageWrapper from '../components/page-wrapper'
 
 export default function Registration() {
   return (
-    <motion.div
-      key="registration"
-      variants={defaultVariants}
-      initial="hidden"
-      animate="enter"
-      exit="exit"
-      transition={{ duration: 0.3 }}
-    >
+    <PageWrapper key="registration">
+      <Head>
+        <title>Регистрация</title>
+      </Head>
       <RegistrationModule />
-    </motion.div>
+    </PageWrapper>
   )
 }

@@ -1,18 +1,16 @@
+import Head from 'next/head'
+
 import SponsorModule from '../modules/sponsor'
-import { motion } from 'framer-motion'
-import { defaultVariants } from './index'
+
+import PageWrapper from '../components/page-wrapper'
 
 export default function Sponsor() {
   return (
-    <motion.div
-      key="sponsor"
-      variants={defaultVariants}
-      initial="hidden"
-      animate="enter"
-      exit="exit"
-      transition={{ duration: 0.3 }}
-    >
+    <PageWrapper key="sponsor">
+      <Head>
+        <title>Стать спонсором</title>
+      </Head>
       <SponsorModule />
-    </motion.div>
+    </PageWrapper>
   )
 }

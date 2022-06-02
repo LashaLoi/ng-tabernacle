@@ -1,34 +1,17 @@
 import { Suspense, useCallback } from 'react'
 import Head from 'next/head'
-import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 import { Canvas } from '@react-three/fiber'
+
+import { Home as HomeModule } from '../modules/home/index'
+
+import PageWrapper from '../components/page-wrapper'
+import { arrowDown } from '../components/icons'
 import { Stars } from '../components/tree/star'
-import HomeModule from '../modules/home'
 import { FadeIn } from '../components/fade-in'
-import Image from 'next/image'
+
 import logo from '../public/skinia.svg'
-
-export const defaultVariants = {
-  hidden: { opacity: 0 },
-  enter: { opacity: 1 },
-  exit: { opacity: 0 },
-}
-
-export const arrowDown = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-5 w-5"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-  >
-    <path
-      fillRule="evenodd"
-      d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z"
-      clipRule="evenodd"
-    />
-  </svg>
-)
 
 export default function Home() {
   const handleClick = useCallback(() => {
@@ -39,14 +22,7 @@ export default function Home() {
   }, [])
 
   return (
-    <motion.div
-      key="index"
-      variants={defaultVariants}
-      initial="hidden"
-      animate="enter"
-      exit="exit"
-      transition={{ duration: 0.3 }}
-    >
+    <PageWrapper key="index">
       <Head>
         <title>Skinia2022</title>
       </Head>
@@ -92,7 +68,7 @@ export default function Home() {
               <Stars />
             </Canvas>
           </Suspense>
-          <div className="absolute sm:hidden block w-full bottom-4 text-white flex justify-center">
+          <div className="absolute sm:hidden w-full bottom-4 text-white flex justify-center">
             <div className="cursor-pointer" onClick={handleClick}>
               {arrowDown}
             </div>
@@ -102,6 +78,6 @@ export default function Home() {
           <HomeModule />
         </div>
       </div>
-    </motion.div>
+    </PageWrapper>
   )
 }

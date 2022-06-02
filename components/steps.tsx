@@ -20,7 +20,7 @@ export default function Steps({
   optional,
 }: StepsProps) {
   return (
-    <div className="mt-4 mb-[160px] flex sm:flex-row flex-col">
+    <div className="mt-4 mb-[160px] flex flex-wrap">
       <FadeIn>
         <PrimaryButton
           className="mr-2 sm:mt-0 mt-2"

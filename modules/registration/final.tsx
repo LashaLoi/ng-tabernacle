@@ -1,12 +1,9 @@
 import Link from 'next/link'
 
 import { motion } from 'framer-motion'
-import {
-  DefaultButton,
-  LinkButton,
-  PrimaryButton,
-} from '../../components/buttons'
-import { telegramIcon } from '../home'
+import { DefaultButton, PrimaryButton } from '../../components/buttons'
+
+import { telegramIcon } from '../../components/icons'
 
 interface FinalProps {
   handleReset: () => void
