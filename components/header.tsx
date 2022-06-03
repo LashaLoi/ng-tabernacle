@@ -12,6 +12,7 @@ import {
   vkIcon,
   youtubeIcon,
 } from '../components/icons'
+
 import { FadeIn } from './fade-in'
 import { useCallback, useState } from 'react'
 import { Modal } from './modal'
@@ -170,7 +171,7 @@ const routes = [
   // { title: 'Галерея', route: '/gallery', icon: galleryIcon },
 ]
 
-export default function Header({ show = true }: { show?: boolean }) {
+const Header = ({ show = true }: { show?: boolean }) => {
   const router = useRouter()
   const [open, setOpen] = useState(false)
 
@@ -290,3 +291,5 @@ export default function Header({ show = true }: { show?: boolean }) {
     </>
   )
 }
+
+export default Header

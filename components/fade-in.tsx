@@ -16,18 +16,20 @@ interface FadeInProps {
   children: React.ReactNode
 }
 
-export function FadeIn({ children, delay = 0.3, className }: FadeInProps) {
-  return (
-    <motion.div
-      initial="init"
-      animate="out"
-      variants={variants}
-      transition={{
-        delay,
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  )
-}
+export const FadeIn: React.FC<FadeInProps> = ({
+  children,
+  delay = 0.3,
+  className,
+}) => (
+  <motion.div
+    initial="init"
+    animate="out"
+    variants={variants}
+    transition={{
+      delay,
+    }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+)

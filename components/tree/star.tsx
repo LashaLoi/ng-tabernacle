@@ -6,7 +6,7 @@ import { Vector3 } from 'three'
 
 const v = new Vector3()
 
-export function Stars() {
+export const Stars = () => {
   const ref = useRef<any>()
   const sphere = inSphere(new Float32Array(2000), {
     radius: 1.5,
