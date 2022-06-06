@@ -1,34 +1,43 @@
 import Link from 'next/link'
-import { useReducer } from 'react'
+import {Users} from '../modules/admin'
 
 import { PrimaryButton } from '../components/buttons'
 import { Input } from '../components/input'
 import { useComplexState } from '../hooks/useComplexState'
 import { supabase } from '../supabase'
 
-// const availableEmails = ['lashaloi1409@gmail.com', 'esthervoronenko@gmail.com']
+const availableEmails = ['lashaloi1409@gmail.com', 'esthervoronenko@gmail.com']
 
-export default function Admin() {
-  const [{ email, password, loading }, setState, resetState] = useComplexState({
+export default function Admin({users}: any) {
+
+
+  const [{ user, email, password, loading, error }, setState] = useComplexState({
     email: '',
     password: '',
     loading: false,
-    error: false,
+    error: "",
     user: false,
   })
 
   const handleSubmit = async (event: any) => {
     event.preventDefault()
 
-    setState({ loading: true })
+    if (!availableEmails.includes(email)) {
+      setState({ error: "У вас нет прав на вход" })
+
+      return
+    }
+
+    setState({ loading: true, error: "" })
 
     const { error } = await supabase.auth.signIn({
       email,
       password,
     })
-
+    
+    
     if (error) {
-      setState({ error: true, loading: false })
+      setState({ error: "Неверный логин или пароль", loading: false })
 
       return
     }
@@ -39,6 +48,10 @@ export default function Admin() {
       password: '',
       user: true,
     })
+  }
+
+  if (user) {
+    return <Users users={users}/>
   }
 
   return (
@@ -93,6 +106,7 @@ export default function Admin() {
                   placeholder="strongpassword"
                 />
               </div>
+              {!!error && <p className='mb-2 text-red-400'>{error}</p>}
               <div className="mb-6">
                 <PrimaryButton>
                   {loading ? 'Заходим...' : 'Войти'}
@@ -113,4 +127,15 @@ export default function Admin() {
       </div>
     </div>
   )
+}
+
+
+export async function getServerSideProps() {
+  const { data: users } = await supabase.from('User').select()
+
+  return {
+    props: {
+      users
+    }, 
+  }
 }
