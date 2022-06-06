@@ -32,7 +32,7 @@ export const Users: React.FC<any> = ({users}) => {
 							</tr>
 						</thead>
 						<tbody>
-                            {users.map((user, i) => <tr key={i}>
+                            {users.map((user: any, i: any) => <tr key={i}>
                                     <td  className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <div className="flex items-center">
                                                     <p className="text-gray-900 whitespace-no-wrap">
