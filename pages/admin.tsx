@@ -1,57 +1,57 @@
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import {Users} from '../modules/admin'
+import { Users } from '../modules/admin'
 
 import { PrimaryButton } from '../components/buttons'
 import { Input } from '../components/input'
 import { useComplexState } from '../hooks/useComplexState'
 import { supabase } from '../supabase'
+import { useLocalStorage } from '../modules/registration/hooks'
 
 const availableEmails = ['lashaloi1409@gmail.com', 'esthervoronenko@gmail.com']
+const adminPassword = 'av2022skinia'
 
-export default function Admin({users}: any) {
-
-
-  const [{ user, email, password, loading, error }, setState] = useComplexState({
+export default function Admin({ users }: any) {
+  const [loading, setLoading] = useState(false)
+  const [isLogged, setIsLogged] = useLocalStorage('isLogged', false)
+  const [{ email, password, error }, setState] = useComplexState({
     email: '',
     password: '',
-    loading: false,
-    error: "",
-    user: false,
+    error: '',
   })
+
+  useEffect(() => {
+    setLoading(true)
+  }, [])
 
   const handleSubmit = async (event: any) => {
     event.preventDefault()
 
-    if (!availableEmails.includes(email)) {
-      setState({ error: "У вас нет прав на вход" })
+    if (!availableEmails.includes(email.toLocaleLowerCase())) {
+      setState({ error: 'У вас нет прав на вход' })
 
       return
     }
 
-    setState({ loading: true, error: "" })
+    setState({ error: '' })
 
-    const { error } = await supabase.auth.signIn({
-      email,
-      password,
-    })
-    
-    
-    if (error) {
-      setState({ error: "Неверный логин или пароль", loading: false })
+    if (password !== adminPassword) {
+      setState({ error: 'Неверный логин или пароль' })
 
       return
     }
 
     setState({
-      loading: false,
       email: '',
       password: '',
-      user: true,
     })
+    setIsLogged(true)
   }
 
-  if (user) {
-    return <Users users={users}/>
+  if (!loading) return null
+
+  if (isLogged) {
+    return <Users users={users} />
   }
 
   return (
@@ -106,11 +106,9 @@ export default function Admin({users}: any) {
                   placeholder="strongpassword"
                 />
               </div>
-              {!!error && <p className='mb-2 text-red-400'>{error}</p>}
+              {!!error && <p className="mb-2 text-red-400">{error}</p>}
               <div className="mb-6">
-                <PrimaryButton>
-                  {loading ? 'Заходим...' : 'Войти'}
-                </PrimaryButton>
+                <PrimaryButton>Войти</PrimaryButton>
               </div>
               <p className="text-sm text-center text-gray-400">
                 Не знаете что тут делаете? Переходите на{' '}
@@ -129,13 +127,12 @@ export default function Admin({users}: any) {
   )
 }
 
-
 export async function getServerSideProps() {
   const { data: users } = await supabase.from('User').select()
 
   return {
     props: {
-      users
-    }, 
+      users,
+    },
   }
 }
