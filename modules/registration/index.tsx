@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { Finish, useLocalStorage, useLS, useStep, useValue } from './hooks'
+import { Finish, useLS, useStep, useValue } from './hooks'
 
 import Header from '../../components/header'
 import { Input } from '../../components/input'
@@ -27,7 +27,7 @@ const defaultPrice = 120
 export default function Registration() {
   const state = useRef<State>({})
 
-  const [price, setPrice] = useLocalStorage('prices', defaultPrice)
+  const [price, setPrice] = useState(defaultPrice)
   const [showNotification, setShowNotification] = useTimeoutShow(4000)
   const [showModal, setShowModal] = useState(false)
 
