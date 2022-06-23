@@ -18,9 +18,7 @@ export default function ContactsModule() {
   }, [setShowNotification])
 
   return (
-    <div className="relative w-full overflow-x-hidden">
-      <Header />
-
+    <div className="relative w-full overflow-x-hidden pt-24">
       <MapSection onSubmit={handleSubmit} />
 
       <ContactUsSection />

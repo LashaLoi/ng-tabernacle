@@ -22,19 +22,18 @@ export type State = {
   [key in number]: { value: string; ignored?: boolean }
 }
 
-const defaultPrice = 120
-
 export default function Registration() {
   const state = useRef<State>({})
 
-  const [price, setPrice] = useState(defaultPrice)
   const [showNotification, setShowNotification] = useTimeoutShow(4000)
   const [showModal, setShowModal] = useState(false)
 
   const [step, incrementStep, decrementStep, setStep] = useStep()
+
   const currentQuestion = useMemo(() => questions[step], [step])
 
   const [isFinished, setIsFinished] = useLS('finished')
+
   const [value, handleChange, setValue] = useValue()
 
   const handleFinish = useCallback(() => {
@@ -57,11 +56,6 @@ export default function Registration() {
       setValue(state.current[step + 2]?.value ?? '')
 
       return
-    }
-
-    // price logic
-    if (currentQuestion.price && currentQuestion.value !== value) {
-      setPrice(price + 20)
     }
 
     // last question logic
@@ -96,7 +90,6 @@ export default function Registration() {
 
     setValue('')
     setStep(0)
-    setPrice(defaultPrice)
 
     setIsFinished(Finish.No)
   }, [])
@@ -120,102 +113,101 @@ export default function Registration() {
   const loading = useMemo(() => isFinished === null, [isFinished])
 
   return (
-    <div className="h-screen relative overflow-x-hidden">
-      <Header />
-
+    <div className="min-h-screen overflow-x-hidden py-24 flex justify-center flex-col items-center">
       {!loading && (
         <AnimatePresence initial={false} exitBeforeEnter={true}>
           {isFinal ? (
-            <Final handleReset={handleReset} price={price} />
+            <Final handleReset={handleReset} />
           ) : (
             <motion.div
               key="quiz"
-              className="max-w-2xl sm:px-16 px-8 mx-auto flex flex-col justify-center"
+              className="sm:w-[700px] w-full sm:px-16 px-8"
               {...quizAnimation}
             >
-              <h1 className="mb-2 tracking-tight font-extrabold sm:text-3xl text-2xl">
-                <span className="block xl:inline">Регистрация</span>{' '}
-                <span className="block text-indigo-600 xl:inline main-title">
-                  Скиния 2022
-                </span>
-              </h1>
-              <AnimatePresence initial={false} exitBeforeEnter={true}>
-                <motion.div key={step} {...stepAnimation}>
-                  <div className="mb-2">
-                    <p className="text-gray-500 text-lg">
-                      {currentQuestion.label}
-                    </p>
-                  </div>
-                  {currentQuestion.description && (
+              <>
+                <h1 className="sm:text-3xl text-2xl mb-2 font-bold text-gray-500 w-full uppercase">
+                  Регистрация
+                </h1>
+                <p className="mb-2 text-gray-500 sm:text-lg text-md">
+                  Заполните все вопросы чтобы стать участником{' '}
+                  <span className="main-title uppercase font-extrabold">
+                    Скинии 2022
+                  </span>{' '}
+                  Некоторые вопросы можно пропустить. Стоимость пакета считается
+                  по дням (20 BYN - 1 день)
+                </p>
+                <p className="mb-6 text-gray-400">25.07 - 30.07</p>
+
+                <AnimatePresence initial={false} exitBeforeEnter={true}>
+                  <motion.div key={step} {...stepAnimation}>
                     <div className="mb-2">
-                      <p className="text-gray-500 text-sm">
-                        {currentQuestion.description}
+                      <p className="text-gray-400 text-lg">
+                        {currentQuestion.label}
                       </p>
                     </div>
-                  )}
-                  {currentQuestion.component === 'select' ? (
-                    <>
-                      {currentQuestion.options!.map((option) => (
-                        <label
-                          key={option}
-                          className="flex justify-start items-start  my-4"
-                        >
-                          <div className="bg-white border-2 rounded border-gray-400 w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-900">
-                            <input
-                              checked={value === option}
-                              type="checkbox"
-                              className="opacity-0 absolute"
-                              onChange={() =>
-                                handleChange({ target: { value: option } })
-                              }
-                            />
-                            <AnimatePresence exitBeforeEnter>
-                              {value === option && (
-                                <motion.div
-                                  key={option}
-                                  initial={{ opacity: 0 }}
-                                  animate={{ opacity: 1 }}
-                                  exit={{ opacity: 0 }}
-                                >
-                                  <FadeIn delay={0.1}>
-                                    <svg
-                                      className={`fill-current ${
-                                        value === option ? 'block' : 'hidden'
-                                      } w-4 h-4 text-blue-900 pointer-events-none`}
-                                      viewBox="0 0 20 20"
-                                    >
-                                      <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
-                                    </svg>
-                                  </FadeIn>
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </div>
-                          <div className="select-none">{option}</div>
-                        </label>
-                      ))}
-                    </>
-                  ) : (
-                    <Input
-                      className="rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-900 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-900 focus:outline-none"
-                      onChange={handleChange}
-                      value={value}
-                      autoFocus
-                      placeholder={currentQuestion.placeholder}
-                    />
-                  )}
-                </motion.div>
-              </AnimatePresence>
-
+                    {currentQuestion.description && (
+                      <div className="mb-2">
+                        <p className="text-gray-400 text-sm">
+                          {currentQuestion.description}
+                        </p>
+                      </div>
+                    )}
+                    {currentQuestion.component === 'select' ? (
+                      <>
+                        {currentQuestion.options!.map((option) => (
+                          <label
+                            key={option}
+                            className="flex justify-start items-start  my-4"
+                          >
+                            <div className="bg-white border-2 rounded border-gray-400 w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-900">
+                              <input
+                                checked={value === option}
+                                type="checkbox"
+                                className="opacity-0 absolute"
+                                onChange={() =>
+                                  handleChange({ target: { value: option } })
+                                }
+                              />
+                              <AnimatePresence exitBeforeEnter>
+                                {value === option && (
+                                  <motion.div
+                                    key={option}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                  >
+                                    <FadeIn delay={0.1}>
+                                      <svg
+                                        className={`fill-current ${
+                                          value === option ? 'block' : 'hidden'
+                                        } w-4 h-4 text-blue-900 pointer-events-none`}
+                                        viewBox="0 0 20 20"
+                                      >
+                                        <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
+                                      </svg>
+                                    </FadeIn>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
+                            <div className="select-none">{option}</div>
+                          </label>
+                        ))}
+                      </>
+                    ) : (
+                      <Input
+                        className="rounded form-control block w-full px-3 py-1.5 text-base font-normal text-gray-900 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-900 focus:outline-none"
+                        onChange={handleChange}
+                        value={value}
+                        autoFocus
+                        placeholder={currentQuestion.placeholder}
+                      />
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </>
               <div className="mt-4">
                 <Progress percent={percent} />
-              </div>
-
-              <div className="my-2 text-gray-700 text-lg">
-                <p>
-                  Стоимость пакета:{' '}
-                  <span className="text-gray-500">{price} BYN</span>
-                </p>
               </div>
 
               <Steps
