@@ -9,9 +9,7 @@ export default function Program() {
       <Head>
         <title>Программа</title>
       </Head>
-      <div className="absolute sm:overflow-x-visible overflow-x-hidden w-full">
-        <Header />
-
+      <div className="absolute sm:overflow-x-visible overflow-x-hidden w-full pt-32">
         <div className="flex flex-col w-full text-center mt-2 md:mt-12 sm:px-20 px-10 mb-20">
           <h1 className="tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl text-4xl">
             Программа

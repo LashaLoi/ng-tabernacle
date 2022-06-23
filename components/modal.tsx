@@ -22,7 +22,7 @@ export const Modal: React.FC<any> = ({ children, onClose }) => (
     style={{
       zIndex: 100000000,
     }}
-    className="text-black fixed w-full h-full top-0 bg-white"
+    className="fixed w-full h-full top-0 bg-gray-300/20 backdrop-blur-lg"
     initial={{ opacity: 0, y: 1000 }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: 1000 }}

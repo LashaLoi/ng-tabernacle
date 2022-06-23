@@ -53,7 +53,7 @@ export const questions = [
   },
   {
     label:
-      'Если вы приезжаете не на все время, укажите количество дней Вашего пребывания (25.07-30.07).',
+      'Если вы приезжаете не на все время, укажите количество дней вашего пребывания',
     placeholder: 'С какого - по какое число',
     component: 'input',
     optional: true,
@@ -94,7 +94,7 @@ export const questions = [
     optional: true,
   },
   {
-    label: 'Приобрести майку с логотипом',
+    label: 'Приобрести майку с логотипом (+20 BYN)',
     placeholder: 'Размер / Нет',
     component: 'select',
     options: ['M', 'S', 'L', 'Нет'],
@@ -102,7 +102,7 @@ export const questions = [
     value: 'Нет',
   },
   {
-    label: 'Приобрести шоппер с логотипом - 20 BYN',
+    label: 'Приобрести шоппер с логотипом (+20 BYN)',
     placeholder: 'Да / Нет',
     component: 'select',
     options: ['Да', 'Нет'],

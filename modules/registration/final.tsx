@@ -1,16 +1,16 @@
 import Link from 'next/link'
 
 import { motion } from 'framer-motion'
+
 import { DefaultButton, PrimaryButton } from '../../components/buttons'
 
 import { telegramIcon } from '../../components/icons'
 
 interface FinalProps {
   handleReset: () => void
-  price: number
 }
 
-export default function Final({ handleReset, price }: FinalProps) {
+export default function Final({ handleReset }: FinalProps) {
   return (
     <motion.div
       key="final"
@@ -18,16 +18,15 @@ export default function Final({ handleReset, price }: FinalProps) {
       animate={{ y: 0, opacity: 1, scale: 1 }}
       exit={{ y: 50, opacity: 0, scale: 0.8 }}
       transition={{ duration: 0.2, type: 'tween' }}
-      className="relative lg:max-w-3xl md:max-w-2xl sm:p-16 p-8 mx-auto flex flex-col justify-center"
     >
-      <p className="tracking-tight font-bold text-gray-600 sm:text-3xl text-2xl sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0 mb-2">
-        Поздравляем вас с успешной регистрацией на школу поклонения{' '}
-        <span className="block text-indigo-600 xl:inline main-title">
-          СКИНИЯ 2022!
-        </span>
-      </p>
-      <p className="text-gray-400 flex mb-4 sm:flex-row flex-col">
-        <span className="mr-2">Будь в курсе всех новостей о школе</span>
+      <h1 className="sm:text-3xl text-lg font-bold text-gray-500 uppercase">
+        Вы зарегестрировались на
+      </h1>
+      <h1 className="sm:text-3xl text-lg mb-6 font-bold text-gray-500 uppercase main-title">
+        СКИНИЯ 2022
+      </h1>
+      <p className="text-gray-400 flex sm:flex-row flex-col">
+        <span className="mr-2">Будьте в курсе новостей о школе</span>
         <a
           href="https://t.me/skiniaby"
           target="_blank"
@@ -38,7 +37,7 @@ export default function Final({ handleReset, price }: FinalProps) {
         </a>
       </p>
 
-      <div className="flex flex-wrap sm:flex-row flex-col mt-6 mb-20">
+      <div className="flex flex-wrap sm:flex-row flex-col mt-6">
         <div className="mr-2">
           <Link href="/program" passHref>
             <PrimaryButton>Программа</PrimaryButton>

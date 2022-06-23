@@ -72,9 +72,7 @@ export default function Sponsor() {
   const loading = useMemo(() => isFinished === null, [isFinished])
 
   return (
-    <div className="h-screen relative overflow-x-hidden">
-      <Header />
-
+    <div className="h-screen relative overflow-x-hidden pt-32">
       {!loading && (
         <AnimatePresence initial={false} exitBeforeEnter={true}>
           {isFinal ? (

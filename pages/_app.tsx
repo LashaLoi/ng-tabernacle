@@ -2,12 +2,17 @@ import type { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 
 import '../styles/globals.css'
+import Header from '../components/header'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AnimatePresence exitBeforeEnter>
-      <Component {...pageProps} />
-    </AnimatePresence>
+    <>
+      <Header />
+
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} />
+      </AnimatePresence>
+    </>
   )
 }
 

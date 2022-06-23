@@ -168,13 +168,17 @@ export const telegramIcon = (
 )
 
 export const arrow = (
-  <svg
+  <motion.svg
     xmlns="http://www.w3.org/2000/svg"
     className="h-6 w-6"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
     strokeWidth={2}
+    whileHover={{
+      scale: 1.2,
+    }}
+    whileTap={{ scale: 0.9 }}
   >
     <motion.path
       initial={{
@@ -193,5 +197,119 @@ export const arrow = (
       strokeLinejoin="round"
       d="M17 8l4 4m0 0l-4 4m4-4H3"
     />
+  </motion.svg>
+)
+
+export const menu = (
+  <motion.svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+    whileHover={{
+      scale: 1.2,
+    }}
+    whileTap={{ scale: 0.9 }}
+  >
+    <motion.path
+      initial={{
+        opacity: 0,
+        pathLength: 0,
+      }}
+      transition={{
+        duration: 1,
+        ease: 'easeInOut',
+      }}
+      animate={{
+        opacity: 1,
+        pathLength: 1,
+      }}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M4 6h16M4 12h16M4 18h16"
+    />
+  </motion.svg>
+)
+
+export const closeIcon = (
+  <motion.svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+    whileHover={{
+      scale: 1.2,
+    }}
+    whileTap={{ scale: 0.9 }}
+  >
+    <motion.path
+      initial={{
+        opacity: 0,
+        pathLength: 0,
+      }}
+      transition={{
+        duration: 1,
+        ease: 'easeInOut',
+      }}
+      animate={{
+        opacity: 1,
+        pathLength: 1,
+      }}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M6 18L18 6M6 6l12 12"
+    />
+  </motion.svg>
+)
+
+const blob = (
+  <svg
+    viewBox="0 0 800 500"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    className="sm:w-[1000px] w-[500px]"
+    id="blobSvg"
+  >
+    <g transform="translate(-269, 191)">
+      <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style={{ stopColor: 'rgb(238, 205, 163)' }}></stop>
+          <stop offset="100%" style={{ stopColor: 'rgb(239, 98, 159)' }}></stop>
+        </linearGradient>
+      </defs>
+      <path
+        d="M441,301.5Q410,353,373,395.5Q336,438,276.5,458Q217,478,173,433.5Q129,389,105,344.5Q81,300,50,241Q19,182,54.5,124Q90,66,156.5,64Q223,62,275.5,71Q328,80,353.5,123.5Q379,167,425.5,208.5Q472,250,441,301.5Z"
+        fill="url(#gradient)"
+      ></path>
+    </g>
+  </svg>
+)
+
+const blob2 = (
+  <svg
+    viewBox="0 0 800 500"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    className="sm:w-[1000px] w-[500px] -mr-[200px]"
+    id="blobSvg"
+  >
+    <g transform="translate(327, -234)">
+      <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style={{ stopColor: 'rgb(238, 205, 163)' }}></stop>
+          <stop offset="100%" style={{ stopColor: 'rgb(239, 98, 159)' }}></stop>
+        </linearGradient>
+      </defs>
+      <path
+        d="M449,286.5Q426,323,411,359.5Q396,396,367,429.5Q338,463,294,449Q250,435,216,424Q182,413,131,416.5Q80,420,52.5,381.5Q25,343,42.5,296.5Q60,250,68.5,214Q77,178,109,159.5Q141,141,154.5,96.5Q168,52,209,51Q250,50,287.5,59.5Q325,69,342.5,104.5Q360,140,375,166Q390,192,431,221Q472,250,449,286.5Z"
+        fill="url(#gradient)"
+      ></path>
+    </g>
   </svg>
 )

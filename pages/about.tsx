@@ -4,9 +4,7 @@ import PageWrapper from '../components/page-wrapper'
 export default function About() {
   return (
     <PageWrapper itemKey="about">
-      <div className="relative w-full overflow-x-hidden">
-        <Header />
-
+      <div className="relative pt-32 w-full overflow-x-hidden">
         <div className="container  px-6 mx-auto sm:text-2xl flex justify-center flex-col items-center">
           <h2 className="text-3xl font-bold mb-12 text-blue-900">О школе</h2>
           <section className="mb-32 text-gray-800 max-w-[800px]">
@@ -77,7 +75,10 @@ export default function About() {
               <div className="sm:mb-24 mb-6">
                 <div className="bg-white block rounded-lg shadow-lg">
                   <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                    <img src="/2.jpg" className="w-full rounded-t-lg max-h-[300px] object-cover" />
+                    <img
+                      src="/2.jpg"
+                      className="w-full rounded-t-lg max-h-[300px] object-cover"
+                    />
                     <a href="#!">
                       <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                     </a>
@@ -135,7 +136,10 @@ export default function About() {
               <div className="sm:mb-24 mb-6">
                 <div className="bg-white block rounded-lg shadow-lg">
                   <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                    <img src="/4.jpg" className="w-full rounded-t-lg max-h-[300px] object-cover object-center" />
+                    <img
+                      src="/4.jpg"
+                      className="w-full rounded-t-lg max-h-[300px] object-cover object-center"
+                    />
                     <a href="#!">
                       <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                     </a>
@@ -164,7 +168,10 @@ export default function About() {
               <div className="sm:mb-24 mb-6">
                 <div className="bg-white block rounded-lg shadow-lg">
                   <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                    <img src="/5.jpg" className="w-full rounded-t-lg max-h-[300px] object-cover" />
+                    <img
+                      src="/5.jpg"
+                      className="w-full rounded-t-lg max-h-[300px] object-cover"
+                    />
                     <a href="#!">
                       <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                     </a>
@@ -193,7 +200,10 @@ export default function About() {
               <div className="sm:mb-24 mb-6">
                 <div className="bg-white block rounded-lg shadow-lg">
                   <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                    <img src="/9.jpg" className="w-full rounded-t-lg max-h-[300px] object-cover" />
+                    <img
+                      src="/9.jpg"
+                      className="w-full rounded-t-lg max-h-[300px] object-cover"
+                    />
                     <a href="#!">
                       <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                     </a>
@@ -212,7 +222,12 @@ export default function About() {
                   <div className="p-6">
                     <h5 className="text-lg font-bold mb-4">Станислав Янчин</h5>
                     <p className="text-gray-500 mb-4 sm:text-base text-sm">
-                    Музыкальный руководитель ц. &quot;Иисуса Христа&quot;, бас- гитарист, звукорежиссёр, автор инструментальной музыки. Преподаватель музыкального отделения хрестианского колледжа &quot;ХДН&quot; по предмету &quot;бас-гитара&quot; и &quot;ансамбль&quot;. Организатор и участник межцерковных музыкальных проектов. 
+                      Музыкальный руководитель ц. &quot;Иисуса Христа&quot;,
+                      бас- гитарист, звукорежиссёр, автор инструментальной
+                      музыки. Преподаватель музыкального отделения хрестианского
+                      колледжа &quot;ХДН&quot; по предмету
+                      &quot;бас-гитара&quot; и &quot;ансамбль&quot;. Организатор
+                      и участник межцерковных музыкальных проектов.
                     </p>
                   </div>
                 </div>
@@ -220,7 +235,10 @@ export default function About() {
               <div className="sm:mb-24 mb-6">
                 <div className="bg-white block rounded-lg shadow-lg">
                   <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                    <img src="/10.jpg" className="w-full rounded-t-lg max-h-[300px] object-cover object-top" />
+                    <img
+                      src="/10.jpg"
+                      className="w-full rounded-t-lg max-h-[300px] object-cover object-top"
+                    />
                     <a href="#!">
                       <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                     </a>
@@ -239,15 +257,22 @@ export default function About() {
                   <div className="p-6">
                     <h5 className="text-lg font-bold mb-4">Любовь Янчина</h5>
                     <p className="text-gray-500 mb-4 sm:text-base text-sm">
-                    Артистка балета народного танца высшей категории (БГЗХА &quot;Хорошки&quot;). Педагог-хореограф первой категории (стаж работы 20 лет). Основатель и руководитель хрестианской танцевальной группы &quot;Радость Сиона&quot;. Участник межцерковных творческих проектов.
+                      Артистка балета народного танца высшей категории (БГЗХА
+                      &quot;Хорошки&quot;). Педагог-хореограф первой категории
+                      (стаж работы 20 лет). Основатель и руководитель
+                      хрестианской танцевальной группы &quot;Радость
+                      Сиона&quot;. Участник межцерковных творческих проектов.
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="sm:mb-24"mb-6>
+              <div className="sm:mb-24" mb-6>
                 <div className="bg-white block rounded-lg shadow-lg">
                   <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                    <img src="/11.jpg" className="w-full rounded-t-lg max-h-[300px] object-cover" />
+                    <img
+                      src="/11.jpg"
+                      className="w-full rounded-t-lg max-h-[300px] object-cover"
+                    />
                     <a href="#!">
                       <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                     </a>
@@ -266,7 +291,12 @@ export default function About() {
                   <div className="p-6">
                     <h5 className="text-lg font-bold mb-4">Дарья Янчина</h5>
                     <p className="text-gray-500 mb-4 sm:text-base text-sm">
-                    Артистка балета народного танца высшей категории (Гос.ансамбль танца Беларуси). Педагог-хореограф. Лидер хрестианской танцевальной группы  &quot;Радость Сиона&quot;, лидер Творческой лаборатории ц. &quot;Иисуса Христа&quot; (г.Минск), участник группы прославления, участник межцерковных творческих проектов.
+                      Артистка балета народного танца высшей категории
+                      (Гос.ансамбль танца Беларуси). Педагог-хореограф. Лидер
+                      хрестианской танцевальной группы &quot;Радость
+                      Сиона&quot;, лидер Творческой лаборатории ц. &quot;Иисуса
+                      Христа&quot; (г.Минск), участник группы прославления,
+                      участник межцерковных творческих проектов.
                     </p>
                   </div>
                 </div>
