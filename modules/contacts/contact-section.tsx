@@ -26,7 +26,7 @@ export function ContactSection() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-gray-900 truncate ">
-                    Эстэра
+                    Эстэра (координатор)
                   </p>
                   <a
                     href="https://t.me/esthervoronenko"
@@ -56,7 +56,7 @@ export function ContactSection() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-gray-900 truncate ">
-                    Анна
+                    Анна (расселение)
                   </p>
                   <a
                     href="https://t.me/stenova"

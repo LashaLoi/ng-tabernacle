@@ -170,11 +170,10 @@ export default function Program() {
                   29.07 - пятница
                 </h3>
                 <p className="leading-tight  mb-2">
-                  10:00 - <b>молитва и поклонение</b>
-                </p>
-                <p className="leading-tight  mb-2">12:15 - перерыв</p>
-                <p className="leading-tight  mb-2">
-                  12:30 - <b>семинар</b>
+                  10:00 -{' '}
+                  <b>
+                    утреннее молитвенное служение, молитва за студентов школы
+                  </b>
                 </p>
                 <p className="leading-tight  mb-2">13:30 - обед</p>
                 <p className="leading-tight  mb-2">
@@ -190,8 +189,8 @@ export default function Program() {
                 <p className="leading-tight  mb-2">
                   19:30 -{' '}
                   <b>
-                    Заключительный вечер хвалы и поклонения, молитва за
-                    исцеление
+                    евангелизационное служение, хвала поклонение, молитва за
+                    исцеление и освобождение!
                   </b>
                 </p>
               </div>
