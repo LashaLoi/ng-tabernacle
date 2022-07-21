@@ -34,7 +34,7 @@ const routes = [
     title: 'О школе',
     route: '/about',
   },
-  { title: 'Регистрация', route: '/registration' },
+  // { title: 'Регистрация', route: '/registration' },
   {
     title: 'Стать спонсором',
     route: '/sponsor',
