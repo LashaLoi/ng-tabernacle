@@ -75,12 +75,12 @@ export function Home() {
 
             {/*//*/}
 
-            <Link href="/registration">
+            {/* <Link href="/registration">
               <a className="mb-4 sm:hidden block flex items-center">
                 <span className="mr-2 text-lg">Регистрация</span>
                 {arrow}
               </a>
-            </Link>
+            </Link> */}
 
             <Link href="/about">
               <a className="mb-4 sm:hidden block flex items-center">
