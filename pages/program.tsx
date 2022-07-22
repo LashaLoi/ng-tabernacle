@@ -30,13 +30,13 @@ export default function Program() {
                   25.07 - понедельник
                 </h3>
                 <p className="leading-tight mb-2">
-                  16:00 - <b>регистрация</b>
+                  16:00 - <b>Открытая пультовая</b>
                 </p>
                 <p className="leading-tight  mb-2">
-                  18:00 - <b>ОТКРЫТИЕ ШКОЛЫ</b>
-                </p>
-                <p className="leading-tight  mb-2">
-                  19:30 - совместный ужин, молитва, общение, информация
+                  18:00 -{' '}
+                  <b>
+                    Открытие: совместный ужин, общение, молитва и поклонение
+                  </b>
                 </p>
               </div>
               <div className="col-start-5 col-end-6 md:mx-auto relative mr-10 hidden sm:block">
@@ -59,29 +59,30 @@ export default function Program() {
                   26.07 - вторник
                 </h3>
                 <p className="leading-tight  mb-2 ">
-                  10:00 - <b>молитва и поклонение</b>
+                  10:00 - <b>Молитва и Поклонение</b>
                 </p>
-                <p className="leading-tight  mb-2">11:00 - перерыв</p>
+                <p className="leading-tight  mb-2">11:00 - Перерыв</p>
                 <p className="leading-tight  mb-2">
-                  11:15 - <b>семинар Леонид Воронеко</b>
+                  11:15 - <b>Семинар | Человек - жилище Бога</b>
                 </p>
-                <p className="leading-tight  mb-2">12:15 - перерыв</p>
+                <p className="leading-tight  mb-2">12:15 - Перерыв</p>
                 <p className="leading-tight  mb-2">
-                  12:30 - <b>семинар Алексей Ледяева</b>
+                  12:30 - <b>Семинар | Истоки поклонения</b>
                 </p>
-                <p className="leading-tight  mb-2">13:30 - обед</p>
+                <p className="leading-tight  mb-2">13:30 - Обед</p>
                 <p className="leading-tight  mb-2">
-                  14:30 - <b>мастер-класс Сергей Кобрин</b>
+                  14:30 - <b>Мастер-класс | Звук</b>
                 </p>
-                <p className="leading-tight  mb-2">16:00 - перерыв</p>
+                <p className="leading-tight  mb-2">16:00 - Перерыв</p>
                 <p className="leading-tight  mb-2">
-                  16:30 - <b>мастер-класс Александр Виславский</b>
+                  16:30 -{' '}
+                  <b>
+                    Мастер-класс | Современная композиция, белорусская культура
+                  </b>
                 </p>
+                <p className="leading-tight  mb-2">18:00 - Ужин</p>
                 <p className="leading-tight  mb-2">
-                  18:00 - ужин + подготовка к вечеру хвалы
-                </p>
-                <p className="leading-tight  mb-2">
-                  19:30 - <b>вечер хвалы и поклонения</b>
+                  19:30 - <b>Вечер хвалы и поклонения</b>
                 </p>
               </div>
             </div>
@@ -92,27 +93,25 @@ export default function Program() {
                   27.07 - среда
                 </h3>
                 <p className="leading-tight  mb-2">
-                  10:00 - <b>молитва и поклонение</b>
+                  10:00 - <b>Молитва и Поклонение</b>
                 </p>
-                <p className="leading-tight  mb-2">11:00 - перерыв</p>
+                <p className="leading-tight  mb-2">11:00 - Перерыв</p>
                 <p className="leading-tight  mb-2">
-                  11:15 - <b>семинар Алексей Ледяев</b>
+                  11:15 - <b>Семинар | Дары Духа Святого</b>
                 </p>
-                <p className="leading-tight  mb-2">12:15 - перерыв</p>
+                <p className="leading-tight  mb-2">12:15 - Перерыв</p>
                 <p className="leading-tight  mb-2">
-                  12:30 - <b>семинар Леонид Вороненко</b>
+                  12:30 - <b>Семинар | Скиния</b>
                 </p>
-                <p className="leading-tight  mb-2">13:30 - обед</p>
+                <p className="leading-tight  mb-2">13:30 - Обед</p>
                 <p className="leading-tight  mb-2">
-                  14:30 - <b>мастер-класс Анастасия Шепелевич</b>
+                  14:30 - <b>Занятие по риторике</b>
                 </p>
-                <p className="leading-tight  mb-2">16:00 - перерыв</p>
+                <p className="leading-tight  mb-2">16:00 - Перерыв</p>
                 <p className="leading-tight  mb-2">
-                  16:30 - <b>мастер-класс Дарья Янчина</b>
+                  16:30 - <b>Танцевальный мастер-класс</b>
                 </p>
-                <p className="leading-tight  mb-2">
-                  18:00 - ужин + подготовка к вечеру хвалы
-                </p>
+                <p className="leading-tight  mb-2">18:00 - Ужин</p>
                 <p className="leading-tight  mb-2">
                   19:30 - <b>Израильский вечер</b>
                 </p>
@@ -137,29 +136,27 @@ export default function Program() {
                   28.07 - четверг
                 </h3>
                 <p className="leading-tight  mb-2">
-                  10:00 - <b>молитва и поклонение</b>
+                  10:00 - <b>Молитва и Поклонение</b>
                 </p>
-                <p className="leading-tight  mb-2">11:00 - перерыв</p>
+                <p className="leading-tight  mb-2">11:00 - Перерыв</p>
                 <p className="leading-tight  mb-2">
-                  11:15 - <b>семинар Команда LV</b>
+                  11:15 - <b>Семинар | Песть пустыни</b>
                 </p>
-                <p className="leading-tight  mb-2">12:15 - перерыв</p>
+                <p className="leading-tight  mb-2">12:15 - Перерыв</p>
                 <p className="leading-tight  mb-2">
-                  12:30 - <b>семинар Команда LV</b>
+                  12:30 - <b>Семинар | Рефлекс поклонения</b>
                 </p>
-                <p className="leading-tight  mb-2">13:30 - обед</p>
+                <p className="leading-tight  mb-2">13:30 - Обед</p>
                 <p className="leading-tight  mb-2">
-                  14:30 - <b>творческая лаборатория Команда LV</b>
+                  14:30 - <b>Творческая лаборатория</b>
                 </p>
-                <p className="leading-tight  mb-2">16:00 - перерыв</p>
+                <p className="leading-tight  mb-2">16:00 - Перерыв</p>
                 <p className="leading-tight  mb-2">
-                  16:30 - <b>творческая лаборатория Команда LV</b>
+                  16:30 - <b>Творческая лаборатория</b>
                 </p>
+                <p className="leading-tight  mb-2">18:00 - Ужин</p>
                 <p className="leading-tight  mb-2">
-                  18:00 - ужин + подготовка к вечеру хвалы
-                </p>
-                <p className="leading-tight  mb-2">
-                  19:30 - <b>шоу талантов &quot;Твое время&quot;</b>
+                  19:30 - <b>Шоу талантов &quot;Твое время&quot;</b>
                 </p>
               </div>
             </div>
@@ -171,26 +168,26 @@ export default function Program() {
                 </h3>
                 <p className="leading-tight  mb-2">
                   10:00 -{' '}
-                  <b>
-                    утреннее молитвенное служение, молитва за студентов школы
-                  </b>
+                  <b>Молитвенное служение, молитва за участников школы</b>
                 </p>
-                <p className="leading-tight  mb-2">13:30 - обед</p>
+                <p className="leading-tight  mb-2">12:15 - Перерыв</p>
                 <p className="leading-tight  mb-2">
-                  14:30 - <b>мастер-класс Сергей Кобрин, Стас Янчин</b>
+                  12:30 - <b>Личные встречи с педагогами</b>
                 </p>
-                <p className="leading-tight  mb-2">16:00 - перерыв</p>
+                <p className="leading-tight  mb-2">13:30 - Обед</p>
                 <p className="leading-tight  mb-2">
-                  16:30 - <b>ответы на вопросы</b>
+                  14:30 - <b>Мастер-класс | Написание песен</b>
                 </p>
+                <p className="leading-tight  mb-2">16:00 - Перерыв</p>
                 <p className="leading-tight  mb-2">
-                  18:00 - ужин + подготовка к вечеру хвалы
+                  16:30 - <b>Ответы на вопросы</b>
                 </p>
+                <p className="leading-tight  mb-2">18:00 - Ужин</p>
                 <p className="leading-tight  mb-2">
                   19:30 -{' '}
                   <b>
-                    евангелизационное служение, хвала поклонение, молитва за
-                    исцеление и освобождение!
+                    Евангелизационное служение, хвала поклонение, молитва за
+                    исцеление
                   </b>
                 </p>
               </div>
@@ -214,7 +211,10 @@ export default function Program() {
                   30.07 - суббота
                 </h3>
                 <p className="leading-tight  mb-2">
-                  10:00 - <b>молитвенный завтрак, обратная связь, общение</b>
+                  10:00 - <b>Молитвенный завтрак, обратная связь</b>
+                </p>
+                <p className="leading-tight  mb-2">
+                  13:00 - <b>До встречи на СКИНИИ 2023!</b>
                 </p>
               </div>
             </div>
